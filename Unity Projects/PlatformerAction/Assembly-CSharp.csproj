@@ -56,9 +56,10 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Demigod\Scripts\PlayerData.cs" />
-    <Compile Include="Assets\Demigod\Scripts\Player.cs" />
     <Compile Include="Assets\Demigod\Scripts\SaveSystem.cs" />
+    <Compile Include="Assets\Demigod\Scripts\Player.cs" />
+    <Compile Include="Assets\Demigod\Scripts\PlayerData.cs" />
+    <Compile Include="Assets\Demigod\Scripts\MenuButtons.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
