@@ -13,39 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
-    m_Keys:
-    - .collabignore
-    - Assets/Tilemap Extras.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Dungeon Rule Tile.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Dungeon Rule Tile/Sprites.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Dungeon Rule Tile/Sprites/Dungeon.png
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Dungeon Rule Tile/Sprites/Dungeon.png.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Dungeon Rule Tile/Tiles.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Dungeon Rule Tile/Tiles/Dungeon.asset
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Dungeon Rule Tile/Tiles/Dungeon.asset.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Pipe Rule Tile.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Pipe Rule Tile/Sprites.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Pipe Rule Tile/Sprites/Pipes.png
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Pipe Rule Tile/Sprites/Pipes.png.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Pipe Rule Tile/Tiles.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Pipe Rule Tile/Tiles/Pipes.asset
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Pipe Rule Tile/Tiles/Pipes.asset.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Waterfall Animated Tile.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Waterfall Animated Tile/Sprites.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Waterfall Animated Tile/Sprites/Waterfall.png
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Waterfall Animated Tile/Sprites/Waterfall.png.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Waterfall Animated Tile/Tiles.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Waterfall Animated Tile/Tiles/Waterfall.asset
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Waterfall Animated Tile/Tiles/Waterfall.asset.meta
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Waterfall Animated Tile/Tiles/Waterfall_Bottom.asset
-    - Assets/Tilemap Extras/2D Tilemap Extras/1.6.4-preview/Waterfall Animated Tile/Tiles/Waterfall_Bottom.asset.meta
-    - Packages/manifest.json
-    - Packages/packages-lock.json
-    - ProjectSettings/ProjectVersion.txt
-    - 
-    m_Values: 00000000000000000000000000000000000000000000000000000000000000
+    m_Keys: []
+    m_Values: 
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 
