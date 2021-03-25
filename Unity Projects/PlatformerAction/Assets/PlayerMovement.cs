@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        Falling();
+
         if (controller.m_FacingRight)
         {
             if (CanMove(Vector3.right, dashDistance))
@@ -47,9 +49,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // gets input for moving sideways
-        // left(left arrow or "a") = -1; no input = 0; right(right arrow or "d") = 1
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+            // gets input for moving sideways
+            // left(left arrow or "a") = -1; no input = 0; right(right arrow or "d") = 1
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         // Sets the animator parameter "Speed" to input's value
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -99,10 +101,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Falling()
+    {
+        if (transform.position.y < -5)
+            animator.SetBool("IsFalling", true);
+    }
+
     void FixedUpdate()
     {
         // Moveing player
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
+
     }
 }
