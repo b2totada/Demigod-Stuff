@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CircleCollider2D circlecollider2d;
 
+    // dashdinst questioning??????
     float dashDistance = 2f;
 
     [SerializeField] private LayerMask foregroundlayermask;
@@ -104,7 +105,10 @@ public class PlayerMovement : MonoBehaviour
     public void Falling()
     {
         if (transform.position.y < -5)
+        {
+            animator.SetBool("IsJumping", false);
             animator.SetBool("IsFalling", true);
+        }
     }
 
     void FixedUpdate()
