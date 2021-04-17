@@ -56,16 +56,21 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Actual_assets\ENEMY\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Demigod\Scripts\MenuButtons.cs" />
     <Compile Include="Assets\Actual_assets\TILES, BACKGROUND ELEMENTS, ETC\Free Pixel Art Forest_night_forest\Demo\MoveBackground.cs" />
     <Compile Include="Assets\Enemy_behaviour.cs" />
+    <Compile Include="Assets\Actual_assets\ENEMY\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
     <Compile Include="Assets\Demigod\Scripts\SaveSystem.cs" />
+    <Compile Include="Assets\TriggerAreaCheck.cs" />
+    <Compile Include="Assets\HotZoneCheck.cs" />
     <Compile Include="Assets\Actual_assets\PLAYER CHARACTER\2D-Character-Controller-master\CharacterController2D.cs" />
+    <Compile Include="Assets\PlayerCombat.cs" />
     <Compile Include="Assets\Demigod\Scripts\Player.cs" />
     <Compile Include="Assets\Demigod\Scripts\PlayerData.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
-    <Compile Include="Assets\TriggerAreaCheck.cs" />
-    <Compile Include="Assets\HotZoneCheck.cs" />
+    <Compile Include="Assets\BanditBehaviour.cs" />
+    <Compile Include="Assets\EnemyHealth.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Actual_assets\TILES, BACKGROUND ELEMENTS, ETC\Free Pixel Art Forest_night_forest\Contact.txt" />

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tutorial
   - Enemy
+  - Bandit
+  - Skeleton
   layers:
   - Default
   - TransparentFX
