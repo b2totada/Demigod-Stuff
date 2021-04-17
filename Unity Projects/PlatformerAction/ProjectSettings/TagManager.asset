@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tutorial
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - UI
   - Player
   - Foreground
-  - 
-  - 
+  - Enemies
+  - HotZone
   - 
   - 
   - 
@@ -53,4 +54,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3844083589
+    locked: 0
+  - name: Enemies
+    uniqueID: 1130222271
     locked: 0

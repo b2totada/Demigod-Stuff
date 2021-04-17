@@ -13,8 +13,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
-    m_Keys: []
-    m_Values: 
+    m_Keys:
+    - .collabignore
+    - Assets/Demigod/Animations/EnemyAnims/Skeleton/Skeleton_attack.anim
+    - Assets/Demigod/Animations/EnemyAnims/Skeleton/Skeleton_attack.anim.meta
+    - Assets/Demigod/Scenes/Level1.unity
+    - Assets/Demigod/Scenes/Level1.unity.meta
+    - Assets/Enemy_behaviour.cs
+    - Assets/Enemy_behaviour.cs.meta
+    - Assets/HotZoneCheck.cs
+    - Assets/HotZoneCheck.cs.meta
+    - Assets/TriggerAreaCheck.cs
+    - Assets/TriggerAreaCheck.cs.meta
+    - Packages/manifest.json
+    - Packages/packages-lock.json
+    - ProjectSettings/ProjectVersion.txt
+    - ProjectSettings/TagManager.asset
+    - 
+    m_Values: 00000000000000000000000000000000
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 

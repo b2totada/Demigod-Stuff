@@ -58,11 +58,14 @@
   <ItemGroup>
     <Compile Include="Assets\Demigod\Scripts\MenuButtons.cs" />
     <Compile Include="Assets\Actual_assets\TILES, BACKGROUND ELEMENTS, ETC\Free Pixel Art Forest_night_forest\Demo\MoveBackground.cs" />
+    <Compile Include="Assets\Enemy_behaviour.cs" />
     <Compile Include="Assets\Demigod\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Actual_assets\PLAYER CHARACTER\2D-Character-Controller-master\CharacterController2D.cs" />
     <Compile Include="Assets\Demigod\Scripts\Player.cs" />
     <Compile Include="Assets\Demigod\Scripts\PlayerData.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\TriggerAreaCheck.cs" />
+    <Compile Include="Assets\HotZoneCheck.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Actual_assets\TILES, BACKGROUND ELEMENTS, ETC\Free Pixel Art Forest_night_forest\Contact.txt" />
@@ -709,6 +712,12 @@
     <Reference Include="Unity.2D.IK.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
@@ -735,12 +744,6 @@
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
