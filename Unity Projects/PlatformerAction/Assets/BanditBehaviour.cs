@@ -18,7 +18,10 @@ public class BanditBehaviour : MonoBehaviour
     {
         currentHealth -= damage;
 
-        animator.SetTrigger("Hurt");
+        if (currentHealth > 0)
+        {
+            animator.SetTrigger("Hurt");
+        }
 
         if (currentHealth <= 0)
         {
@@ -29,7 +32,6 @@ public class BanditBehaviour : MonoBehaviour
     void Die()
     {
         animator.SetBool("IsDead", true);
-
         Invoke("RealDeath", 2);
     }
 

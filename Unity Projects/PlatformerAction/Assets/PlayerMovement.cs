@@ -19,8 +19,10 @@ public class PlayerMovement : MonoBehaviour
 
     private CircleCollider2D circlecollider2d;
 
-    // dashdinst questioning??????
-    float dashDistance = 2f;
+    // dash
+    public float dashDistance = 2f;
+    public float dashCd = 5f;
+    float nextDash = 0f;
 
     [SerializeField] private LayerMask foregroundlayermask;
 
@@ -35,18 +37,23 @@ public class PlayerMovement : MonoBehaviour
     {
         Falling();
 
-        if (controller.m_FacingRight)
+        if (Time.time > nextDash)
         {
-            if (CanMove(Vector3.right, dashDistance))
+            if (controller.m_FacingRight && Input.GetKeyDown(KeyCode.Space))
             {
-                Dash();
+                if (CanMove(Vector3.right, dashDistance))
+                {
+                    Dash_right();
+                    nextDash = Time.time + dashCd;
+                }
             }
-        }
-        if (!controller.m_FacingRight)
-        {
-            if (CanMove(Vector3.left, dashDistance))
+            if (!controller.m_FacingRight && Input.GetKeyDown(KeyCode.Space))
             {
-                Dash();
+                if (CanMove(Vector3.left, dashDistance))
+                {
+                    Dash_left();
+                    nextDash = Time.time + dashCd;
+                }
             }
         }
 
@@ -83,16 +90,18 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.CircleCast(circlecollider2d.bounds.center, 0.3797424f, dir, distance, foregroundlayermask).collider == null;
     }
 
-    public void Dash()
+    public void Dash_right()
     {
-        if (controller.m_FacingRight)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                transform.position += Vector3.right * dashDistance;
-            }
-        }
+        transform.position += Vector3.right * dashDistance;
+    }
 
+    public void Dash_left()
+    {
+        transform.position += Vector3.right * -dashDistance;
+    }
+            
+        
+    /*
         if (!controller.m_FacingRight)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -100,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.position += Vector3.right * -dashDistance;
             }
         }
-    }
+    }*/
 
     public void Falling()
     {

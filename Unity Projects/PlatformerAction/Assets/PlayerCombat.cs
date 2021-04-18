@@ -11,6 +11,7 @@ public class PlayerCombat : MonoBehaviour
     public int attackDamage = 40;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+    public GameObject skele;
 
     void Update()
     {
@@ -41,7 +42,8 @@ public class PlayerCombat : MonoBehaviour
             }
             else if (enemy.gameObject.CompareTag("Skeleton"))
             {
-                enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+                skele = GameObject.Find("skeleton1_collider");
+                skele.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
             }
         }
     }

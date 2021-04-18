@@ -150,4 +150,14 @@ public class Enemy_behaviour : MonoBehaviour
 
         transform.eulerAngles = rotation;
     }
+
+    public void Hurt()
+    {
+        anim.SetTrigger("Hurt");
+    }
+
+    public void Die()
+    {
+        anim.SetBool("IsDead", true);
+    }
 }

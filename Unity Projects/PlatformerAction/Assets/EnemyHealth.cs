@@ -7,7 +7,8 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
 
-    public Animator animator;
+    private Enemy_behaviour enemy_behaviour;
+    //public Animator animator;
 
     void Start()
     {
@@ -18,7 +19,9 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
-        animator.SetTrigger("Hurt");
+        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
+        enemy_behaviour.Hurt();
+        //animator.SetTrigger("Hurt");
 
         if (currentHealth <= 0)
         {
@@ -28,7 +31,9 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        animator.SetBool("IsDead", true);
+        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
+        enemy_behaviour.Die();
+        //animator.SetBool("IsDead", true);
 
         Invoke("RealDeath", 2);
     }
