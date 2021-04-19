@@ -59,27 +59,29 @@
     <Compile Include="Assets\EnemyHealth.cs" />
     <Compile Include="Assets\Actual_assets\ENEMY\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Demigod\Scripts\MenuButtons.cs" />
-    <Compile Include="Assets\Actual_assets\TILES, BACKGROUND ELEMENTS, ETC\Free Pixel Art Forest_night_forest\Demo\MoveBackground.cs" />
+    <Compile Include="Assets\Actual_assets\tilesBackgrounds\Free Pixel Art Forest_night_forest\Demo\MoveBackground.cs" />
+    <Compile Include="Assets\damagePlayer.cs" />
     <Compile Include="Assets\Enemy_behaviour.cs" />
     <Compile Include="Assets\Actual_assets\ENEMY\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
     <Compile Include="Assets\Demigod\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\TriggerAreaCheck.cs" />
     <Compile Include="Assets\test_hello.cs" />
     <Compile Include="Assets\HotZoneCheck.cs" />
-    <Compile Include="Assets\Actual_assets\PLAYER CHARACTER\2D-Character-Controller-master\CharacterController2D.cs" />
+    <Compile Include="Assets\Actual_assets\PLAYERCHARACTER\2D-Character-Controller-master\CharacterController2D.cs" />
     <Compile Include="Assets\PlayerCombat.cs" />
     <Compile Include="Assets\Demigod\Scripts\Player.cs" />
     <Compile Include="Assets\Demigod\Scripts\PlayerData.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
     <Compile Include="Assets\BanditBehaviour.cs" />
-    <Compile Include="Assets\damagePlayer.cs" />
+    <Compile Include="Assets\CloudSpawner.cs" />
+    <Compile Include="Assets\CloudMove.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\Actual_assets\TILES, BACKGROUND ELEMENTS, ETC\Free Pixel Art Forest_night_forest\Contact.txt" />
-     <None Include="Assets\Actual_assets\PLAYER CHARACTER\Martial Hero (animations asset)\Martial Hero\License.txt" />
-     <None Include="Assets\Actual_assets\TILES, BACKGROUND ELEMENTS, ETC\Medieval_pixel_art_asset_FREE_fantasy_room_interior\pixel_snapping_README.txt" />
-     <None Include="Assets\Actual_assets\TILES, BACKGROUND ELEMENTS, ETC\Free Pixel Art Forest_night_forest\Lisense.txt" />
-     <None Include="Assets\Actual_assets\TILES, BACKGROUND ELEMENTS, ETC\Free Pixel Art Forest_night_forest\readme.txt" />
+     <None Include="Assets\Actual_assets\tilesBackgrounds\Free Pixel Art Forest_night_forest\Contact.txt" />
+     <None Include="Assets\Actual_assets\PLAYERCHARACTER\Martial Hero(animations asset)\Martial Hero\License.txt" />
+     <None Include="Assets\Actual_assets\tilesBackgrounds\Medieval_pixel_art_asset_FREE_fantasy_room_interior\pixel_snapping_README.txt" />
+     <None Include="Assets\Actual_assets\tilesBackgrounds\Free Pixel Art Forest_night_forest\Lisense.txt" />
+     <None Include="Assets\Actual_assets\tilesBackgrounds\Free Pixel Art Forest_night_forest\readme.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.5f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -301,12 +303,6 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.5f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.5f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.5f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.5f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Demigod/Scenes/MainMenu.unity
     guid: b08b58cdb45fa724fa7aaf0f44ac7cca
   - enabled: 1
-    path: Assets/Demigod/Scenes/GameSelect.unity
-    guid: c4155f04d44f378498a1006915814651
-  - enabled: 1
     path: Assets/Demigod/Scenes/Options.unity
     guid: 6ecd3345f9eacbc41a13d7b111feaa98
+  - enabled: 1
+    path: Assets/Demigod/Scenes/Level1.unity
+    guid: cdb2ba4545ada3343bc7d3cf64a4d3a8
   m_configObjects: {}

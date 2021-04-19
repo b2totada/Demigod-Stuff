@@ -8,7 +8,7 @@ public class MenuButtons : MonoBehaviour
 {
     public void PlayButtonPress()
     {
-        SceneManager.LoadScene("GameSelect", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Level1");
     }
     public void OptionsButtonPress()
     {
