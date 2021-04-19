@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Bandit
   - Skeleton
+  - Enemy_weapon
   layers:
   - Default
   - TransparentFX

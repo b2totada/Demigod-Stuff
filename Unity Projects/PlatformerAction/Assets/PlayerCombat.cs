@@ -13,6 +13,16 @@ public class PlayerCombat : MonoBehaviour
     float nextAttackTime = 0f;
     public GameObject skele;
 
+    private Enemy_behaviour enemy_behaviour;
+    public int maxHealth = 100;
+    int currentHealth;
+    int enemyAttackDamage;
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+    }
+
     void Update()
     {
         if (Time.time >= nextAttackTime)
@@ -54,5 +64,46 @@ public class PlayerCombat : MonoBehaviour
             return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    //new
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        Debug.Log("Hurt");
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Death");//Die();
+        }
+    }
+
+    void Die()
+    {
+        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
+        enemy_behaviour.Die();
+        //animator.SetBool("IsDead", true);
+
+        Invoke("RealDeath", 2);
+    }
+
+    void RealDeath()
+    {
+        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<PolygonCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        this.enabled = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D trig)
+    {
+        if (trig.gameObject.tag == "Enemy_weapon")
+        {
+            enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
+            enemyAttackDamage = enemy_behaviour.attackDamage;
+            TakeDamage(attackDamage);
+        }
     }
 }

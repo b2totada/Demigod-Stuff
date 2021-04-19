@@ -739,6 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDistance: 1.3
+  attackDamage: 2
   moveSpeed: 2
   timer: 1
   leftLimit: {fileID: 235360823}
@@ -1138,7 +1139,7 @@ GameObject:
   - component: {fileID: 521263557}
   m_Layer: 8
   m_Name: hitBox
-  m_TagString: Skeleton
+  m_TagString: Enemy_weapon
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5468,6 +5469,7 @@ MonoBehaviour:
   attackDamage: 10
   attackRate: 2
   skele: {fileID: 0}
+  maxHealth: 100
 --- !u!1 &2089625090
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Enemy_behaviour : MonoBehaviour
 
     #region Public Variables
     public float attackDistance; //Minimum distance for attack
+    public int attackDamage = 40;
     public float moveSpeed;
     public float timer; //Timer for cooldown between attacks
     public Transform leftLimit;
