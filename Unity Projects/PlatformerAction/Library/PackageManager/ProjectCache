@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637544202471646566
+      ticks: 637545585484558818
     m_Hash: 3721004799
   m_LockFileStatus:
     m_FilePath: C:/Users/mucsi/Documents/GitHub/Demigod-Stuff/Unity Projects/PlatformerAction/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637545561852077883
+      ticks: 637545586012026179
     m_Hash: 429132772
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
