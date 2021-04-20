@@ -17,6 +17,7 @@ public class PlayerCombat : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     int enemyAttackDamage;
+    private PlayerMovement playerMovement;
 
     void Start()
     {
@@ -71,20 +72,20 @@ public class PlayerCombat : MonoBehaviour
     {
         currentHealth -= damage;
 
-        Debug.Log("Hurt");
+        animator.SetTrigger("Hurt");
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Death");//Die();
+            Die();
         }
     }
 
     void Die()
     {
-        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
-        enemy_behaviour.Die();
-        //animator.SetBool("IsDead", true);
+        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement.enabled = false;
 
+        animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
     }
 
@@ -92,8 +93,7 @@ public class PlayerCombat : MonoBehaviour
     {
         GetComponent<CircleCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<PolygonCollider2D>().enabled = false;
-        GetComponent<CapsuleCollider2D>().enabled = false;
+        Destroy(gameObject);
         this.enabled = false;
     }
 

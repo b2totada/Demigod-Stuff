@@ -99,17 +99,6 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position += Vector3.right * -dashDistance;
     }
-            
-        
-    /*
-        if (!controller.m_FacingRight)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                transform.position += Vector3.right * -dashDistance;
-            }
-        }
-    }*/
 
     public void Falling()
     {

@@ -160,5 +160,6 @@ public class Enemy_behaviour : MonoBehaviour
     public void Die()
     {
         anim.SetBool("IsDead", true);
+        this.enabled = false;
     }
 }

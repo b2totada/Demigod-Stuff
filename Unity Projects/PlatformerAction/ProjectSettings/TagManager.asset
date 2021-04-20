@@ -9,6 +9,7 @@ TagManager:
   - Bandit
   - Skeleton
   - Enemy_weapon
+  - bandit_guardpoint
   layers:
   - Default
   - TransparentFX

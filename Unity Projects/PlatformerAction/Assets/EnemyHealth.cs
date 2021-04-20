@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     int currentHealth;
 
     private Enemy_behaviour enemy_behaviour;
+    private GameObject skeleton;
     //public Animator animator;
 
     void Start()
@@ -44,6 +45,8 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<PolygonCollider2D>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
+        skeleton = GameObject.Find("Skeleton1");
+        Destroy(skeleton);
         this.enabled = false;
     }
 }

@@ -41,6 +41,7 @@ public class BanditBehaviour : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<PolygonCollider2D>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
+        Destroy(gameObject);
         this.enabled = false;
     }
 }
