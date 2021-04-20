@@ -10,7 +10,7 @@ public class CloudSpawner : MonoBehaviour
     void Update()
     {
         int dice = Random.Range(0, 10000);
-        if (dice < 7)
+        if (dice < 5)
         {
             int x = Random.Range(0, 2);
             if (x == 1)
@@ -25,7 +25,7 @@ public class CloudSpawner : MonoBehaviour
     }
     static void SpawnCloud(GameObject cloud) 
     {
-        Vector2 spawnPos = new Vector2(10,Random.Range(1,9));
+        Vector2 spawnPos = new Vector2(15,Random.Range(1,9));
         Instantiate(cloud, spawnPos, Quaternion.Euler(0, 0, 0));
         Debug.Log(cloud.name + " spawned.");
     }

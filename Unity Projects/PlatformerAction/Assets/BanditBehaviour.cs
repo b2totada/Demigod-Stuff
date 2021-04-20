@@ -9,10 +9,60 @@ public class BanditBehaviour : MonoBehaviour
 
     public Animator animator;
 
+    //new
+    public float speed;
+    private float dist;
+    private Transform find_player;
+    private Vector2 spot = new Vector2(0.0f, 0.0f);
+    private Transform myTransform;
+    //
+
+
+
     void Start()
     {
         currentHealth = maxHealth;
+        spot = gameObject.transform.position;//new
     }
+
+    //new
+    void Update()
+    {
+        myTransform = gameObject.transform;
+        find_player = transform.Find("/Player");
+        dist = Vector2.Distance(find_player.position, transform.position);
+
+        Move();
+    }
+
+    void Move()
+    {
+        if (dist < 10)
+        {
+            if (find_player.position.x < myTransform.position.x)
+            {
+                myTransform.position -= myTransform.right * speed * Time.deltaTime; // player is left of enemy, move left
+            }
+            else if (find_player.position.x > myTransform.position.x)
+            {
+                myTransform.position += myTransform.right * speed * Time.deltaTime; // player is right of enemy, move right
+            }
+        }
+        else
+        {
+            if (spot.x < myTransform.position.x)
+            {
+                myTransform.position -= myTransform.right * speed * Time.deltaTime; // spot is left of enemy, move left
+            }
+            else if (spot.x > myTransform.position.x)
+            {
+                myTransform.position += myTransform.right * speed * Time.deltaTime; // spot is right of enemy, move right
+            }
+
+
+        }
+    }
+    //
 
     public void TakeDamage(int damage)
     {
