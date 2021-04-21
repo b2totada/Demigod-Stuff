@@ -12,6 +12,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
     public GameObject skele;
+    public float swordSwingTime;
 
     private BanditBehaviour bandit;
     private EnemyHealth enemyHealth;
@@ -45,12 +46,15 @@ public class PlayerCombat : MonoBehaviour
     {
         //Play att anim
         animator.SetTrigger("Attack");
-
+        Invoke("DealDamage",swordSwingTime);
+    }
+    void DealDamage() 
+    {
         //Detect enemies in range of att
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         //Damage them
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy.gameObject.CompareTag("Bandit"))
             {
