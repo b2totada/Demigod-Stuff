@@ -47,7 +47,7 @@ public class PlayerCombat : MonoBehaviour
     {
         //Play att anim
         animator.SetTrigger("Attack");
-        Invoke("DealDamage", 0.4f);
+        Invoke("DealDamage", 0.3f);
     }
     void DealDamage() 
     {
