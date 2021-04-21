@@ -104,6 +104,7 @@ public class PlayerCombat : MonoBehaviour
         Invoke("RealDeath", 2);
 
         enemy_behaviour.anim.SetBool("Attack", false);
+        enemy_behaviour.anim.SetBool("Rage", false);
         enemy_behaviour.enabled = false;
         enemyHealth.enabled = false;
         bandit.enabled = false;

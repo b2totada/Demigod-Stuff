@@ -18,7 +18,7 @@ public class HotZoneCheck : MonoBehaviour
 
     private void Update()
     {
-        if (inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack"))
+        if (inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_rage"))
         {
             enemyParent.Flip();
         }

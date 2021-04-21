@@ -40,7 +40,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (WallDetection())
             //Debug.Log("WALLLLLLLLLLLLLL!!!!!");
-            if (!enemy_behaviour.InsideofLimits() && /*!enemy_behaviour.inRange && */!enemy_behaviour.anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack"))
+            if (!enemy_behaviour.InsideofLimits() && /*!enemy_behaviour.inRange && */!enemy_behaviour.anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack") && !enemy_behaviour.anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_rage"))
             {
                 enemy_behaviour.SelectTarget();
                 Invoke("TrigAreaActive", 1);
