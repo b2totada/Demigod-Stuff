@@ -12,7 +12,6 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
     public GameObject skele;
-    public float swordSwingTime;
 
     private BanditBehaviour bandit;
     private EnemyHealth enemyHealth;
@@ -48,7 +47,7 @@ public class PlayerCombat : MonoBehaviour
     {
         //Play att anim
         animator.SetTrigger("Attack");
-        Invoke("DealDamage",swordSwingTime);
+        Invoke("DealDamage", 0.4f);
     }
     void DealDamage() 
     {
