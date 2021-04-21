@@ -4995,6 +4995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   wallsLayerMask:
     serializedVersion: 2
     m_Bits: 1024

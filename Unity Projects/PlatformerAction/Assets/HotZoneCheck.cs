@@ -5,12 +5,14 @@ using UnityEngine;
 public class HotZoneCheck : MonoBehaviour
 {
     private Enemy_behaviour enemyParent;
+    private EnemyHealth enemyHealth;
     private bool inRange;
     private Animator anim;
 
     private void Awake()
     {
         enemyParent = GetComponentInParent<Enemy_behaviour>();
+        enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
         anim = GetComponentInParent<Animator>();
     }
 
@@ -19,6 +21,16 @@ public class HotZoneCheck : MonoBehaviour
         if (inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack"))
         {
             enemyParent.Flip();
+        }
+        /*
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_death"))
+        {
+            this.enabled = false;
+        }
+        */
+        if (enemyHealth.currentHealth <= 0)
+        {
+            this.enabled = false;
         }
     }
 
