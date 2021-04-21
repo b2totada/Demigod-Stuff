@@ -738,8 +738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ba58c708510d9419eac75a370b7c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 1.3
-  attackDamage: 25
+  attackDistance: 1.7
+  attackDamage: 1
   moveSpeed: 4
   timer: 1
   leftLimit: {fileID: 235360823}
@@ -5724,6 +5724,7 @@ MonoBehaviour:
   attackDamage: 10
   attackRate: 2
   skele: {fileID: 0}
+  swordSwingTime: 0
   maxHealth: 100
 --- !u!1 &2089625090
 GameObject:
