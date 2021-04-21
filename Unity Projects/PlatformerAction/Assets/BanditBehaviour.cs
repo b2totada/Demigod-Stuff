@@ -15,9 +15,9 @@ public class BanditBehaviour : MonoBehaviour
     public float spot2;
     private float dist;
     private Transform find_player;
-    private Transform myTransform;
 
     private bool isMoving;
+    private Transform myTransform;
     //
 
 
