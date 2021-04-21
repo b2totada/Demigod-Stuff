@@ -65,7 +65,7 @@ public class EnemyHealth : MonoBehaviour
         enemy_behaviour.Die();
         //animator.SetBool("IsDead", true);
 
-        Invoke("RealDeath", 1);
+        Invoke("RealDeath", 3);
     }
 
     void RealDeath()
