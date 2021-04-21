@@ -20,9 +20,11 @@ public class PlayerCombat : MonoBehaviour
     int currentHealth;
     int enemyAttackDamage;
     private PlayerMovement playerMovement;
+    private new Rigidbody2D rigidbody;
 
     void Start()
     {
+        rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
         enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
@@ -87,9 +89,14 @@ public class PlayerCombat : MonoBehaviour
 
     void Die()
     {
+        rigidbody.drag = 100f;
+        rigidbody.gravityScale = 75f;
+        //rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+
         playerMovement = GetComponent<PlayerMovement>();
         playerMovement.enabled = false;
 
+        //animator.SetBool("IsFalling", false);
         animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
 
