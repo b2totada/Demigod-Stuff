@@ -11,9 +11,12 @@ public class BanditBehaviour : MonoBehaviour
 
     //new
     public float speed;
+    public float spot1;
+    public float spot2;
     private float dist;
     private Transform find_player;
-    private Vector2 spot = new Vector2(0.0f, 0.0f);
+
+    private bool isMoving;
     private Transform myTransform;
     //
 
@@ -22,7 +25,6 @@ public class BanditBehaviour : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        spot = gameObject.transform.position;//new
     }
 
     //new
@@ -32,34 +34,42 @@ public class BanditBehaviour : MonoBehaviour
         find_player = transform.Find("/Player");
         dist = Vector2.Distance(find_player.position, transform.position);
 
-        Move();
+        Movement();
     }
 
-    void Move()
+    void Movement()
     {
+        animator.SetBool("IsMoving", true);
+
         if (dist < 10)
         {
             if (find_player.position.x < myTransform.position.x)
             {
                 myTransform.position -= myTransform.right * speed * Time.deltaTime; // player is left of enemy, move left
+                gameObject.transform.localScale = new Vector2(1.5f, 1.5f);
             }
             else if (find_player.position.x > myTransform.position.x)
             {
                 myTransform.position += myTransform.right * speed * Time.deltaTime; // player is right of enemy, move right
+                gameObject.transform.localScale = new Vector2(-1.5f, 1.5f);
             }
         }
         else
         {
-            if (spot.x < myTransform.position.x)
+            if (spot2 < myTransform.position.x)
             {
                 myTransform.position -= myTransform.right * speed * Time.deltaTime; // spot is left of enemy, move left
+                gameObject.transform.localScale = new Vector2(1.5f, 1.5f);
             }
-            else if (spot.x > myTransform.position.x)
+            else if (spot1 > myTransform.position.x)
             {
                 myTransform.position += myTransform.right * speed * Time.deltaTime; // spot is right of enemy, move right
+                gameObject.transform.localScale = new Vector2(-1.5f, 1.5f);
             }
-
-
+            else
+            {
+                animator.SetBool("IsMoving", false);
+            }
         }
     }
     //

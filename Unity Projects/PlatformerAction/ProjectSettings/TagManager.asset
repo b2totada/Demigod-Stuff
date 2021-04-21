@@ -9,7 +9,7 @@ TagManager:
   - Bandit
   - Skeleton
   - Enemy_weapon
-  - bandit_guardpoint
+  - BanditSpot
   layers:
   - Default
   - TransparentFX
@@ -21,7 +21,7 @@ TagManager:
   - Foreground
   - Enemies
   - HotZone
-  - 
+  - Walls
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 1130222271
+    locked: 0
+  - name: Walls
+    uniqueID: 3602425749
     locked: 0

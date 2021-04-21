@@ -13,15 +13,22 @@ public class PlayerCombat : MonoBehaviour
     float nextAttackTime = 0f;
     public GameObject skele;
 
+    private BanditBehaviour bandit;
+    private EnemyHealth enemyHealth;
     private Enemy_behaviour enemy_behaviour;
     public int maxHealth = 100;
     int currentHealth;
     int enemyAttackDamage;
     private PlayerMovement playerMovement;
+    private new Rigidbody2D rigidbody;
 
     void Start()
     {
+        rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
+        enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
+        bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
     }
 
     void Update()
@@ -40,12 +47,15 @@ public class PlayerCombat : MonoBehaviour
     {
         //Play att anim
         animator.SetTrigger("Attack");
-
+        Invoke("DealDamage", 0.4f);
+    }
+    void DealDamage() 
+    {
         //Detect enemies in range of att
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         //Damage them
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy.gameObject.CompareTag("Bandit"))
             {
@@ -82,11 +92,21 @@ public class PlayerCombat : MonoBehaviour
 
     void Die()
     {
+        rigidbody.drag = 100f;
+        rigidbody.gravityScale = 75f;
+        //rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+
         playerMovement = GetComponent<PlayerMovement>();
         playerMovement.enabled = false;
 
+        //animator.SetBool("IsFalling", false);
         animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
+
+        enemy_behaviour.anim.SetBool("Attack", false);
+        enemy_behaviour.enabled = false;
+        enemyHealth.enabled = false;
+        bandit.enabled = false;
     }
 
     void RealDeath()
@@ -103,7 +123,7 @@ public class PlayerCombat : MonoBehaviour
         {
             enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
             enemyAttackDamage = enemy_behaviour.attackDamage;
-            TakeDamage(attackDamage);
+            TakeDamage(enemyAttackDamage);
         }
     }
 }
