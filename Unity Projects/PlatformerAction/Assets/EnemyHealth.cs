@@ -47,13 +47,15 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        if (currentHealth > 0)
+        {
+            currentHealth -= damage;
 
-        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
-        enemy_behaviour.Hurt();
-        //animator.SetTrigger("Hurt");
-
-        if (currentHealth <= 0)
+            enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
+            enemy_behaviour.Hurt();
+            //animator.SetTrigger("Hurt");
+        }
+        else if (currentHealth <= 0)
         {
             Die();
         }

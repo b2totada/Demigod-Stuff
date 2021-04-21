@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDistance: 1.7
-  attackDamage: 1
+  attackDamage: 25
   moveSpeed: 4
   timer: 1
   leftLimit: {fileID: 235360823}
@@ -5724,7 +5724,6 @@ MonoBehaviour:
   attackDamage: 10
   attackRate: 2
   skele: {fileID: 0}
-  swordSwingTime: 0
   maxHealth: 100
 --- !u!1 &2089625090
 GameObject:
