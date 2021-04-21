@@ -19,7 +19,7 @@ public class Enemy_behaviour : MonoBehaviour
     #endregion
 
     #region Private Variables
-    private Animator anim;
+    public Animator anim;
     private float distance; //Store the distance b/w enemy and player
     private bool attackMode;
     private bool cooling; //Check if Enemy is cooling after attack
@@ -94,7 +94,7 @@ public class Enemy_behaviour : MonoBehaviour
 
     void Cooldown()
     {
-        timer -= Time.deltaTime;
+        timer -= 4 * Time.deltaTime;
 
         if (timer <= 0 && cooling && attackMode)
         {
@@ -115,7 +115,7 @@ public class Enemy_behaviour : MonoBehaviour
         cooling = true;
     }
 
-    private bool InsideofLimits()
+    public bool InsideofLimits()
     {
         return transform.position.x > leftLimit.position.x && transform.position.x < rightLimit.position.x;
     }

@@ -13,6 +13,8 @@ public class PlayerCombat : MonoBehaviour
     float nextAttackTime = 0f;
     public GameObject skele;
 
+    private BanditBehaviour bandit;
+    private EnemyHealth enemyHealth;
     private Enemy_behaviour enemy_behaviour;
     public int maxHealth = 100;
     int currentHealth;
@@ -22,6 +24,9 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
+        enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
+        bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
     }
 
     void Update()
@@ -87,6 +92,11 @@ public class PlayerCombat : MonoBehaviour
 
         animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
+
+        enemy_behaviour.anim.SetBool("Attack", false);
+        enemy_behaviour.enabled = false;
+        enemyHealth.enabled = false;
+        bandit.enabled = false;
     }
 
     void RealDeath()
@@ -103,7 +113,7 @@ public class PlayerCombat : MonoBehaviour
         {
             enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
             enemyAttackDamage = enemy_behaviour.attackDamage;
-            TakeDamage(attackDamage);
+            TakeDamage(enemyAttackDamage);
         }
     }
 }

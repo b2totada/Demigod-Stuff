@@ -9,10 +9,70 @@ public class BanditBehaviour : MonoBehaviour
 
     public Animator animator;
 
+    //new
+    public float speed;
+    public float spot1;
+    public float spot2;
+    private float dist;
+    private Transform find_player;
+    private Transform myTransform;
+
+    private bool isMoving;
+    //
+
+
+
     void Start()
     {
         currentHealth = maxHealth;
     }
+
+    //new
+    void Update()
+    {
+        myTransform = gameObject.transform;
+        find_player = transform.Find("/Player");
+        dist = Vector2.Distance(find_player.position, transform.position);
+
+        Movement();
+    }
+
+    void Movement()
+    {
+        animator.SetBool("IsMoving", true);
+
+        if (dist < 10)
+        {
+            if (find_player.position.x < myTransform.position.x)
+            {
+                myTransform.position -= myTransform.right * speed * Time.deltaTime; // player is left of enemy, move left
+                gameObject.transform.localScale = new Vector2(1.5f, 1.5f);
+            }
+            else if (find_player.position.x > myTransform.position.x)
+            {
+                myTransform.position += myTransform.right * speed * Time.deltaTime; // player is right of enemy, move right
+                gameObject.transform.localScale = new Vector2(-1.5f, 1.5f);
+            }
+        }
+        else
+        {
+            if (spot2 < myTransform.position.x)
+            {
+                myTransform.position -= myTransform.right * speed * Time.deltaTime; // spot is left of enemy, move left
+                gameObject.transform.localScale = new Vector2(1.5f, 1.5f);
+            }
+            else if (spot1 > myTransform.position.x)
+            {
+                myTransform.position += myTransform.right * speed * Time.deltaTime; // spot is right of enemy, move right
+                gameObject.transform.localScale = new Vector2(-1.5f, 1.5f);
+            }
+            else
+            {
+                animator.SetBool("IsMoving", false);
+            }
+        }
+    }
+    //
 
     public void TakeDamage(int damage)
     {
