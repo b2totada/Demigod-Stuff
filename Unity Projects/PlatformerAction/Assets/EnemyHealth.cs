@@ -50,16 +50,15 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth > 0)
+        if (currentHealth - damage > 0)
         {
             currentHealth -= damage;
-
-            enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
             enemy_behaviour.Hurt();
             //animator.SetTrigger("Hurt");
         }
-        else if (currentHealth <= 0)
+        else if (currentHealth - damage <= 0)
         {
+            currentHealth -= damage;
             trigArea.enabled = false;
             Die();
         }
@@ -67,7 +66,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
         enemy_behaviour.Die();
         //animator.SetBool("IsDead", true);
 

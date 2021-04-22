@@ -92,7 +92,7 @@ public class Enemy_behaviour : MonoBehaviour
         attackMode = true; //To check if Enemy can still attack or not
 
         anim.SetBool("canWalk", false);
-        if (enemyHealth.currentHealth > 30)
+        if (enemyHealth.currentHealth > 50)
         {
             anim.SetBool("Attack", true);
         }

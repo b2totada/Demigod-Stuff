@@ -76,15 +76,14 @@ public class BanditBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
-        if (currentHealth > 0)
+        if (currentHealth - damage > 0)
         {
+            currentHealth -= damage;
             animator.SetTrigger("Hurt");
         }
-
-        if (currentHealth <= 0)
+        else if (currentHealth - damage <= 0)
         {
+            currentHealth -= damage;
             Die();
         }
     }
@@ -97,10 +96,6 @@ public class BanditBehaviour : MonoBehaviour
 
     void RealDeath()
     {
-        GetComponent<CircleCollider2D>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<PolygonCollider2D>().enabled = false;
-        GetComponent<CapsuleCollider2D>().enabled = false;
         Destroy(gameObject);
         this.enabled = false;
     }
