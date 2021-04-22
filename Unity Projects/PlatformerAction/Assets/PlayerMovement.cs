@@ -6,18 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     // To access the controller
     public CharacterController2D controller;
-
     float horizontalMove = 0f;
-
     public float runSpeed = 40f;
-
     bool jump = false;
-
     public Animator animator;
-
     private Rigidbody2D rigidbody2d;
-
     private CircleCollider2D circlecollider2d;
+    private PlayerCombat playerCombat;
 
     // dash
     public float dashDistance = 2f;
@@ -30,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
         circlecollider2d = transform.GetComponent<CircleCollider2D>();
+        playerCombat = GetComponent<PlayerCombat>();
     }
 
     // Update is called once per frame
@@ -65,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         // Jumping
-        if (IsGrounded() && ((Input.GetKeyDown(KeyCode.W))))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.W) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Player_Hit") && !playerCombat.staggered && !playerCombat.frozen)
         {
             float jumpVelocity = 20f;
             rigidbody2d.velocity = Vector2.up * jumpVelocity;

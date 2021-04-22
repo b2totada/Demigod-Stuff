@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ba58c708510d9419eac75a370b7c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 1.7
+  attackDistance: 1.75
   attackDamage: 25
   moveSpeed: 4
   timer: 1
@@ -4995,6 +4995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   wallsLayerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -5604,6 +5605,7 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 1373486272}
   m_CrouchDisableCollider: {fileID: 0}
   m_FacingRight: 1
+  animator: {fileID: 2029587046}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5721,10 +5723,12 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
-  attackDamage: 10
-  attackRate: 2
+  attackDamage: 7
+  attackRate: 3
   skele: {fileID: 0}
   maxHealth: 100
+  staggered: 0
+  frozen: 0
 --- !u!1 &2089625090
 GameObject:
   m_ObjectHideFlags: 0

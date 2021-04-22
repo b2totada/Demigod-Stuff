@@ -21,14 +21,19 @@ public class PlayerCombat : MonoBehaviour
     int enemyAttackDamage;
     private PlayerMovement playerMovement;
     private new Rigidbody2D rigidbody;
+    private PlayerMovement playerMoves;
+    public bool staggered;
+    public bool frozen;
 
     void Start()
     {
+        staggered = false;
         rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
         enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
         bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
+        playerMoves = GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -40,6 +45,17 @@ public class PlayerCombat : MonoBehaviour
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Player_Hit") && playerMoves.IsGrounded())
+        {
+            rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            frozen = true;
+        }
+        else
+        {
+            rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            frozen = false;
         }
     }
 
@@ -80,21 +96,27 @@ public class PlayerCombat : MonoBehaviour
     //new
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
-        animator.SetTrigger("Hurt");
-
-        if (currentHealth <= 0)
+        if (!playerMoves.IsGrounded())
         {
+            Staggering();
+            Invoke("NotStaggering", 0.5f);
+        }
+
+        if (currentHealth - damage > 0)
+        {
+            currentHealth -= damage;
+            animator.SetTrigger("Hurt");
+        }
+        else if (currentHealth - damage <= 0)
+        {
+            currentHealth -= damage;
             Die();
         }
     }
 
     void Die()
     {
-        rigidbody.drag = 100f;
-        rigidbody.gravityScale = 75f;
-        //rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+        Staggering();
 
         playerMovement = GetComponent<PlayerMovement>();
         playerMovement.enabled = false;
@@ -104,6 +126,7 @@ public class PlayerCombat : MonoBehaviour
         Invoke("RealDeath", 2);
 
         enemy_behaviour.anim.SetBool("Attack", false);
+        enemy_behaviour.anim.SetBool("Rage", false);
         enemy_behaviour.enabled = false;
         enemyHealth.enabled = false;
         bandit.enabled = false;
@@ -111,8 +134,6 @@ public class PlayerCombat : MonoBehaviour
 
     void RealDeath()
     {
-        GetComponent<CircleCollider2D>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
         Destroy(gameObject);
         this.enabled = false;
     }
@@ -125,5 +146,19 @@ public class PlayerCombat : MonoBehaviour
             enemyAttackDamage = enemy_behaviour.attackDamage;
             TakeDamage(enemyAttackDamage);
         }
+    }
+
+    void Staggering()
+    {
+        rigidbody.drag = 100f;
+        rigidbody.gravityScale = 75f;
+        staggered = true;
+    }
+
+    void NotStaggering()
+    {
+        rigidbody.drag = 0f;
+        rigidbody.gravityScale = 5f;
+        staggered = false;
     }
 }

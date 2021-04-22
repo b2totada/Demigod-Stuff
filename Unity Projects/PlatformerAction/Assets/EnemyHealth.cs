@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    int currentHealth;
+    public int currentHealth;
 
     private Enemy_behaviour enemy_behaviour;
     private GameObject skeleton;
@@ -15,6 +15,8 @@ public class EnemyHealth : MonoBehaviour
     private CircleCollider2D circlecollider2d;
     private float rotation;
     private GameObject trigCheck;
+
+    private TriggerAreaCheck trigArea;
     //
 
     //public Animator animator;
@@ -25,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
         skeleton = GameObject.Find("Skeleton1");
         enemy_behaviour = skeleton.GetComponent<Enemy_behaviour>();
         trigCheck = GameObject.Find("triggerArea");
+        trigArea = GameObject.Find("triggerArea").GetComponent<TriggerAreaCheck>();
     }
 
     //new
@@ -37,7 +40,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (WallDetection())
             //Debug.Log("WALLLLLLLLLLLLLL!!!!!");
-            if (!enemy_behaviour.InsideofLimits() && /*!enemy_behaviour.inRange && */!enemy_behaviour.anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack"))
+            if (!enemy_behaviour.InsideofLimits() && /*!enemy_behaviour.inRange && */!enemy_behaviour.anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack") && !enemy_behaviour.anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_rage"))
             {
                 enemy_behaviour.SelectTarget();
                 Invoke("TrigAreaActive", 1);
@@ -47,23 +50,22 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth > 0)
+        if (currentHealth - damage > 0)
         {
             currentHealth -= damage;
-
-            enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
             enemy_behaviour.Hurt();
             //animator.SetTrigger("Hurt");
         }
-        else if (currentHealth <= 0)
+        else if (currentHealth - damage <= 0)
         {
+            currentHealth -= damage;
+            trigArea.enabled = false;
             Die();
         }
     }
 
     void Die()
     {
-        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
         enemy_behaviour.Die();
         //animator.SetBool("IsDead", true);
 
@@ -72,10 +74,12 @@ public class EnemyHealth : MonoBehaviour
 
     void RealDeath()
     {
+        /*
         GetComponent<CircleCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<PolygonCollider2D>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
+        */
         Destroy(skeleton);
         this.enabled = false;
     }
