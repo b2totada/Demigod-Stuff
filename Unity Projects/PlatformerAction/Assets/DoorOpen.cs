@@ -10,6 +10,7 @@ public class DoorOpen : MonoBehaviour
     public Sprite doorClosed;
     public Sprite doorOpened;
     public static bool interactSpawned;
+    public string loadSceneName;
     private void Start()
     {
         transform.GetComponent<SpriteRenderer>().sprite = doorClosed;
@@ -27,6 +28,6 @@ public class DoorOpen : MonoBehaviour
     }
     void LoadTowerScene() 
     {
-        SceneManager.LoadScene("TowerInside");
+        SceneManager.LoadScene(loadSceneName);
     }
 }

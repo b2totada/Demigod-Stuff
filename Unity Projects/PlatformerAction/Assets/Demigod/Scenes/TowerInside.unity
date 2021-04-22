@@ -457,7 +457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191543749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.737, y: 46.003002, z: -10}
+  m_LocalPosition: {x: 37.477, y: -1.967, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1230002992}
@@ -602,7 +602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828374359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.39, y: 45.88, z: 0}
+  m_LocalPosition: {x: 36.13, y: -2.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2143752018}
@@ -9730,7 +9730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282350294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.737, y: 46.003002, z: -10}
+  m_LocalPosition: {x: 37.477, y: -1.967, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -20164,6 +20164,85 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1801193419
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1699343212936580940, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_Name
+      value: TowerDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 36.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734279891981272036, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+--- !u!1 &1801193420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1699343212936580940, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
+  m_PrefabInstance: {fileID: 1801193419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1801193421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801193420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c667d6a8142b8094b8618185e87c00ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 828374359}
+  interact: {fileID: 2103185116261251217, guid: 8cf4da574b2aa7841be45aabdd8e5164, type: 3}
+  doorClosed: {fileID: 21300002, guid: ae3918a914038694d852d0bb81f62473, type: 3}
+  doorOpened: {fileID: 21300004, guid: ae3918a914038694d852d0bb81f62473, type: 3}
+  loadSceneName: Necropolis
 --- !u!1 &1951194552
 GameObject:
   m_ObjectHideFlags: 0
