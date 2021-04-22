@@ -27,6 +27,6 @@ public class DoorOpen : MonoBehaviour
     }
     void LoadTowerScene() 
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("TowerInside");
     }
 }
