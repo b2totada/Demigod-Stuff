@@ -30,9 +30,15 @@ public class PlayerCombat : MonoBehaviour
         staggered = false;
         rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-        enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
-        enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
-        bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
+        if (GameObject.Find("Skeleton1") != null)
+        {
+            enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
+            enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
+        }
+        if (GameObject.Find("Bandit1") != null)
+        {
+            bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
+        }
         playerMoves = GetComponent<PlayerMovement>();
     }
 
