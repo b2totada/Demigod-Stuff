@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // To access the controller
-    public CharacterController2D controller;
+    public CharacterController2D controller;    // To access the controller
     float horizontalMove = 0f;
     public float runSpeed = 40f;
     bool jump = false;
@@ -13,24 +12,32 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody2d;
     private CircleCollider2D circlecollider2d;
     private PlayerCombat playerCombat;
+    [SerializeField] private LayerMask foregroundlayermask;
 
     // dash
     public float dashDistance = 2f;
     public float dashCd = 5f;
     float nextDash = 0f;
 
-    [SerializeField] private LayerMask foregroundlayermask;
+    // Falling
+    private float lastY;
+    public float FallingThreshold = -0.01f;  //Adjust in inspector to appropriate value for the speed you want to trigger detecting a fall, probably by just testing (use negative numbers probably)
+    float distancePerSecondSinceLastFrame;
+    [HideInInspector] public bool isFalling = false;  //Other scripts can check this value to see if currently falling
 
     void Awake()
     {
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
         circlecollider2d = transform.GetComponent<CircleCollider2D>();
         playerCombat = GetComponent<PlayerCombat>();
+        lastY = transform.position.y;
     }
 
     // Update is called once per frame
     public void Update()
     {
+        distancePerSecondSinceLastFrame = (transform.position.y - lastY) * Time.deltaTime;
+        lastY = transform.position.y;  //set for next frame
         Falling();
 
         if (Time.time > nextDash)
@@ -96,12 +103,30 @@ public class PlayerMovement : MonoBehaviour
         transform.position += Vector3.right * -dashDistance;
     }
 
-    public void Falling()
+    void Falling()
     {
-        if (transform.position.y < -5)
+        if (IsGrounded())
+        {
+            animator.SetBool("Landed", true);
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsFalling", false);
+            return;
+        }
+
+        if (distancePerSecondSinceLastFrame < FallingThreshold)
+        {
+            isFalling = true;
+        }
+        else
+        {
+            isFalling = false;
+        }
+
+        if (isFalling)
         {
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsFalling", true);
+            animator.SetBool("Landed", false);
         }
     }
 

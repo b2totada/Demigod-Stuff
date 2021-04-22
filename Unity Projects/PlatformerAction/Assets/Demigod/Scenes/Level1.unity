@@ -4851,7 +4851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538221261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3130004, y: 0.10099991, z: -10}
+  m_LocalPosition: {x: -1.3130004, y: -2.092, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 953021965}
@@ -5552,7 +5552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029587038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.66, y: -0.022, z: 0}
+  m_LocalPosition: {x: -2.66, y: -2.215, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1373486272}
@@ -5604,6 +5604,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 1704845687}
   m_CeilingCheck: {fileID: 1373486272}
   m_CrouchDisableCollider: {fileID: 0}
+  m_Grounded: 0
   m_FacingRight: 1
   animator: {fileID: 2029587046}
   OnLandEvent:
@@ -5681,11 +5682,13 @@ MonoBehaviour:
   controller: {fileID: 2029587042}
   runSpeed: 40
   animator: {fileID: 2029587046}
-  dashDistance: 2
-  dashCd: 2
   foregroundlayermask:
     serializedVersion: 2
     m_Bits: 1152
+  dashDistance: 2
+  dashCd: 2
+  FallingThreshold: -0.02
+  isFalling: 0
 --- !u!95 &2029587046
 Animator:
   serializedVersion: 3
@@ -5807,7 +5810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089625090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3130004, y: 0.10099991, z: -10}
+  m_LocalPosition: {x: -1.3130004, y: -2.092, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1469205179}
