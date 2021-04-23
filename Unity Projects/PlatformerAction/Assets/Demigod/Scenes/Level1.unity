@@ -740,7 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 1.75
   attackDamage: 25
-  moveSpeed: 4
+  moveSpeed: 4.5
   timer: 1
   leftLimit: {fileID: 235360823}
   rightLimit: {fileID: 1781114841}
@@ -3471,16 +3471,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.16006722, y: 1.2266679}
-      - {x: 0.01895333, y: 1.5709254}
-      - {x: -0.13454753, y: 1.2226622}
-      - {x: -0.19485855, y: 1.1522799}
-      - {x: -0.15220068, y: 1.0558742}
-      - {x: 0.0076088607, y: 1.0460548}
-      - {x: 0.08485762, y: 1.0510312}
-      - {x: 0.024875976, y: 1.0582572}
-      - {x: 0.16049322, y: 1.0524837}
-      - {x: 0.2142359, y: 1.0859231}
+    - - {x: -0.018997245, y: 0.8328426}
+      - {x: 0.18291798, y: 1.1962566}
+      - {x: 0.012997314, y: 1.424667}
+      - {x: -0.18034934, y: 1.195601}
+      - {x: -0.016442612, y: 0.82244694}
 --- !u!70 &859723977
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3494,8 +3489,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007078807, y: 1.059699}
-  m_Size: {x: 0.4594091, y: 0.6116066}
+  m_Offset: {x: 0.007078807, y: 1.0493612}
+  m_Size: {x: 0.4594091, y: 0.5909251}
   m_Direction: 0
 --- !u!58 &859723978
 CircleCollider2D:
@@ -3639,9 +3634,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   animator: {fileID: 859723975}
-  speed: 3
+  speed: 4.5
   spot1: 34
   spot2: 35
+  staggered: 0
+  banditPolyColl: {fileID: 859723976}
+  breakFree: {x: 10, y: 10, z: 0}
 --- !u!1 &951813677
 GameObject:
   m_ObjectHideFlags: 0
@@ -5680,14 +5678,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2029587042}
-  runSpeed: 40
+  runSpeed: 35
   animator: {fileID: 2029587046}
   foregroundlayermask:
     serializedVersion: 2
     m_Bits: 1152
   dashDistance: 2
   dashCd: 2
-  FallingThreshold: -0.02
+  FallingThreshold: -0.001
   isFalling: 0
 --- !u!95 &2029587046
 Animator:
@@ -5722,16 +5720,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2029587046}
   attackPoint: {fileID: 1000813725}
-  attackRange: 0.89
+  attackRange: 0.53
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
   attackDamage: 7
-  attackRate: 3
+  attackRate: 2
   skele: {fileID: 0}
   maxHealth: 100
   staggered: 0
   frozen: 0
+  playerCircleColl: {fileID: 2029587043}
+  enemy: {fileID: 0}
 --- !u!1 &2089625090
 GameObject:
   m_ObjectHideFlags: 0
