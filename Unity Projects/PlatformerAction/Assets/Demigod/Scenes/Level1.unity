@@ -666,7 +666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &440768379
 Animator:
   serializedVersion: 3
@@ -3642,6 +3642,7 @@ MonoBehaviour:
   speed: 3
   spot1: 34
   spot2: 35
+  staggered: 0
 --- !u!1 &951813677
 GameObject:
   m_ObjectHideFlags: 0
@@ -5722,16 +5723,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2029587046}
   attackPoint: {fileID: 1000813725}
-  attackRange: 0.89
+  attackRange: 0.53
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
   attackDamage: 7
-  attackRate: 3
+  attackRate: 2
   skele: {fileID: 0}
   maxHealth: 100
   staggered: 0
   frozen: 0
+  enemy: {fileID: 0}
 --- !u!1 &2089625090
 GameObject:
   m_ObjectHideFlags: 0

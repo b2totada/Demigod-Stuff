@@ -18,6 +18,9 @@ public class BanditBehaviour : MonoBehaviour
 
     private bool isMoving;
     private Transform myTransform;
+
+    private new Rigidbody2D rigidbody;
+    public bool staggered;
     //
 
 
@@ -25,6 +28,7 @@ public class BanditBehaviour : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     //new
@@ -34,7 +38,15 @@ public class BanditBehaviour : MonoBehaviour
         find_player = transform.Find("/Player");
         dist = Vector2.Distance(find_player.position, transform.position);
 
-        Movement();
+        if (staggered)
+        {
+            rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            Movement();
+        }
     }
 
     void Movement()
@@ -76,20 +88,28 @@ public class BanditBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth - damage > 0)
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("LightBandit_Death"))
         {
-            currentHealth -= damage;
+            Staggering();
             animator.SetTrigger("Hurt");
-        }
-        else if (currentHealth - damage <= 0)
-        {
-            currentHealth -= damage;
-            Die();
+            animator.SetBool("IsMoving", false);
+
+            if (currentHealth - damage > 0)
+            {
+                Invoke("NotStaggering", 0.25f);
+                currentHealth -= damage;
+            }
+            else if (currentHealth - damage <= 0)
+            {
+                currentHealth -= damage;
+                Die();
+            }
         }
     }
 
     void Die()
     {
+        animator.SetBool("IsMoving", false);
         animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
     }
@@ -98,5 +118,19 @@ public class BanditBehaviour : MonoBehaviour
     {
         Destroy(gameObject);
         this.enabled = false;
+    }
+
+    void Staggering()
+    {
+        rigidbody.drag = 100f;
+        rigidbody.gravityScale = 75f;
+        staggered = true;
+    }
+
+    void NotStaggering()
+    {
+        rigidbody.drag = 0f;
+        rigidbody.gravityScale = 5f;
+        staggered = false;
     }
 }

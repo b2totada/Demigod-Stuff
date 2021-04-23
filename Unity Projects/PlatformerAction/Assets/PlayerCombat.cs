@@ -25,6 +25,8 @@ public class PlayerCombat : MonoBehaviour
     public bool staggered;
     public bool frozen;
 
+    public Collider2D enemy;
+
     void Start()
     {
         staggered = false;
@@ -75,18 +77,33 @@ public class PlayerCombat : MonoBehaviour
     {
         //Detect enemies in range of att
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        if (hitEnemies.Length != 0)
+            enemy = hitEnemies[0];
 
         //Damage them
+        int dmg = 0;
         foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy.gameObject.CompareTag("Bandit"))
             {
-                enemy.GetComponent<BanditBehaviour>().TakeDamage(attackDamage);
+                dmg += attackDamage;
+            }
+            else if (enemy.gameObject.CompareTag("Skeleton"))
+            {
+                dmg += attackDamage;
+            }
+        }
+
+        if (enemy != null)
+        {
+            if (enemy.gameObject.CompareTag("Bandit"))
+            {
+                enemy.GetComponent<BanditBehaviour>().TakeDamage(dmg);
             }
             else if (enemy.gameObject.CompareTag("Skeleton"))
             {
                 skele = GameObject.Find("skeleton1_collider");
-                skele.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+                skele.GetComponent<EnemyHealth>().TakeDamage(dmg);
             }
         }
     }
@@ -168,3 +185,21 @@ public class PlayerCombat : MonoBehaviour
         staggered = false;
     }
 }
+
+
+
+
+/*
+foreach (Collider2D enemy in hitEnemies)
+        {
+            if (enemy.gameObject.CompareTag("Bandit"))
+            {
+                enemy.GetComponent<BanditBehaviour>().TakeDamage(attackDamage);
+            }
+            else if (enemy.gameObject.CompareTag("Skeleton"))
+            {
+                skele = GameObject.Find("skeleton1_collider");
+                skele.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
+            }
+        }
+*/
