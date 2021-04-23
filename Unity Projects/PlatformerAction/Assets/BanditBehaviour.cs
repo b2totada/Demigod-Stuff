@@ -21,12 +21,18 @@ public class BanditBehaviour : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
     public bool staggered;
+    public PolygonCollider2D banditPolyColl;
+    private PlayerCombat playerCombat;
+
+    public Vector3 breakFree = new Vector3(10.0f, 10.0f, 0.0f);
     //
 
 
 
     void Start()
     {
+        banditPolyColl = GetComponent<PolygonCollider2D>();
+        playerCombat = GameObject.Find("Player").GetComponent<PlayerCombat>();
         currentHealth = maxHealth;
         rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -47,6 +53,19 @@ public class BanditBehaviour : MonoBehaviour
             rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
             Movement();
         }
+
+        //BREAKFREE
+        if (banditPolyColl.IsTouching(playerCombat.playerCircleColl))
+        {
+            GetComponent<Rigidbody2D>().AddForce(breakFree, ForceMode2D.Impulse);
+            /*
+            if (find_player.position.x < myTransform.position.x)
+                transform.position += Vector3.right * -2;
+            else if (find_player.position.x > myTransform.position.x)
+                transform.position += Vector3.right * 2;
+            */
+        }   
+
     }
 
     void Movement()
@@ -130,7 +149,9 @@ public class BanditBehaviour : MonoBehaviour
     void NotStaggering()
     {
         rigidbody.drag = 0f;
-        rigidbody.gravityScale = 5f;
+        rigidbody.gravityScale = 50f;
         staggered = false;
     }
+
+    
 }

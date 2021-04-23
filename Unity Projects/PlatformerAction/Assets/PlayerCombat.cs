@@ -24,6 +24,7 @@ public class PlayerCombat : MonoBehaviour
     private PlayerMovement playerMoves;
     public bool staggered;
     public bool frozen;
+    public CircleCollider2D playerCircleColl;
 
     public Collider2D enemy;
 

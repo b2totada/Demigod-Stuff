@@ -36,6 +36,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        //VELOCITY.Y IS THE
+        //BEST AND MOST ACCURATE APPROACH FOR JUMPING AND FALLING
+        if (rigidbody2d.velocity.y > 0)
+        {
+            animator.SetBool("Landed", false);
+            animator.SetBool("IsJumping", true);
+            animator.SetBool("IsFalling", false);
+        }
+        else if (rigidbody2d.velocity.y < 0)
+        {
+            animator.SetBool("Landed", false);
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsFalling", true);
+        }
+        else
+        {
+            animator.SetBool("Landed", true);
+        }
+
         distancePerSecondSinceLastFrame = (transform.position.y - lastY) * Time.deltaTime;
         lastY = transform.position.y;  //set for next frame
         Falling();
@@ -72,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         {
             float jumpVelocity = 20f;
             rigidbody2d.velocity = Vector2.up * jumpVelocity;
-
+            animator.SetBool("Landed", false);
             animator.SetBool("IsJumping", true);
         }
     }
