@@ -24,21 +24,21 @@ public class Necromancer : MonoBehaviour
         }
         if (inCombat && phase == 1)
         {
-            InvokeRepeating("Attack2",3f,1f);
+            Invoke("Attack2",3f);
         }
     }
     void Attack2() 
     {
         transform.GetComponent<Animator>().SetTrigger("Attack2");
-        Invoke("SpawnSkullFlame", 0.6f);
+        Invoke("SpawnSkullFlame", 0.2f);
+        Instantiate(skullFlame, transform.position, transform.rotation);
+        Debug.Log("SkullFlame spawned");
+        //Invoke("Attack2", 0.5f);
         attack2Counter++;
         if (attack2Counter == 3)
         {
             CancelInvoke();
+            attack2Counter = 0;
         }
-    }
-    void SpawnSkullFlame() 
-    {
-        Instantiate(skullFlame, transform);
     }
 }

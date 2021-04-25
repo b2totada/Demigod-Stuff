@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3452979973054333305}
   - component: {fileID: 3452979973054333310}
   - component: {fileID: 3452979973054333311}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Necromancer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!95 &3452979973054333310
 Animator:
   serializedVersion: 3
