@@ -15041,6 +15041,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1351481545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1121144989537920874, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+  m_PrefabInstance: {fileID: 1121144991194406481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1452519302
 GameObject:
   m_ObjectHideFlags: 0
@@ -27448,6 +27453,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 513
       objectReference: {fileID: 0}
+    - target: {fileID: 3857550331517348680, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7150877777252491321, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
 --- !u!1001 &4070143827281909534
@@ -27543,6 +27556,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7037736743713362461, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
+      propertyPath: GUI
+      value: 
+      objectReference: {fileID: 1351481545}
     - target: {fileID: 7037736743713362461, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
       propertyPath: skele
       value: 
