@@ -169,12 +169,12 @@ TextureImporter:
       name: Skeleton Walk_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 18
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 22
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: Skeleton Walk_1
       rect:
         serializedVersion: 2
-        x: 23
+        x: 22
         y: 0
-        width: 18
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 22
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -211,12 +211,12 @@ TextureImporter:
       name: Skeleton Walk_2
       rect:
         serializedVersion: 2
-        x: 45
+        x: 44
         y: 0
-        width: 18
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 22
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,10 +234,10 @@ TextureImporter:
         serializedVersion: 2
         x: 66
         y: 0
-        width: 20
+        width: 22
         height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -255,10 +255,10 @@ TextureImporter:
         serializedVersion: 2
         x: 88
         y: 0
-        width: 21
+        width: 22
         height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,8 +278,8 @@ TextureImporter:
         y: 0
         width: 22
         height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -298,9 +298,9 @@ TextureImporter:
         x: 132
         y: 0
         width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,9 +319,9 @@ TextureImporter:
         x: 154
         y: 0
         width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -340,9 +340,9 @@ TextureImporter:
         x: 176
         y: 0
         width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -361,9 +361,9 @@ TextureImporter:
         x: 198
         y: 0
         width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -379,12 +379,12 @@ TextureImporter:
       name: Skeleton Walk_10
       rect:
         serializedVersion: 2
-        x: 221
+        x: 220
         y: 0
-        width: 20
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 22
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -400,12 +400,12 @@ TextureImporter:
       name: Skeleton Walk_11
       rect:
         serializedVersion: 2
-        x: 244
+        x: 242
         y: 0
-        width: 18
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 22
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -421,12 +421,12 @@ TextureImporter:
       name: Skeleton Walk_12
       rect:
         serializedVersion: 2
-        x: 266
+        x: 264
         y: 0
-        width: 17
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 22
+        height: 33
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -24,6 +24,7 @@ public class Enemy_behaviour : MonoBehaviour
     private bool attackMode;
     private bool cooling; //Check if Enemy is cooling after attack
     private float intTimer;
+    private EnemyHealth enemyHealth;
     #endregion
 
     void Awake()
@@ -31,6 +32,7 @@ public class Enemy_behaviour : MonoBehaviour
         SelectTarget();
         intTimer = timer; //Store the inital value of timer
         anim = GetComponent<Animator>();
+        enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
     }
 
     void Update()
@@ -40,7 +42,7 @@ public class Enemy_behaviour : MonoBehaviour
             Move();
         }
 
-        if (!InsideofLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack"))
+        if (!InsideofLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_rage"))
         {
             SelectTarget();
         }
@@ -68,6 +70,7 @@ public class Enemy_behaviour : MonoBehaviour
         {
             Cooldown();
             anim.SetBool("Attack", false);
+            anim.SetBool("Rage", false);
         }
     }
 
@@ -75,7 +78,7 @@ public class Enemy_behaviour : MonoBehaviour
     {
         anim.SetBool("canWalk", true);
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_rage"))
         {
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
 
@@ -89,12 +92,19 @@ public class Enemy_behaviour : MonoBehaviour
         attackMode = true; //To check if Enemy can still attack or not
 
         anim.SetBool("canWalk", false);
-        anim.SetBool("Attack", true);
+        if (enemyHealth.currentHealth > 50)
+        {
+            anim.SetBool("Attack", true);
+        }
+        else
+        {
+            anim.SetBool("Rage", true);
+        }
     }
 
     void Cooldown()
     {
-        timer -= 4 * Time.deltaTime;
+        timer -= 5 * Time.deltaTime;
 
         if (timer <= 0 && cooling && attackMode)
         {
@@ -108,6 +118,7 @@ public class Enemy_behaviour : MonoBehaviour
         cooling = false;
         attackMode = false;
         anim.SetBool("Attack", false);
+        anim.SetBool("Rage", false);
     }
 
     public void TriggerCooling()

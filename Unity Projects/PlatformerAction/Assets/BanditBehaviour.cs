@@ -18,13 +18,23 @@ public class BanditBehaviour : MonoBehaviour
 
     private bool isMoving;
     private Transform myTransform;
+
+    private new Rigidbody2D rigidbody;
+    public bool staggered;
+    public PolygonCollider2D banditPolyColl;
+    private PlayerCombat playerCombat;
+
+    public Vector3 breakFree = new Vector3(10.0f, 10.0f, 0.0f);
     //
 
 
 
     void Start()
     {
+        banditPolyColl = GetComponent<PolygonCollider2D>();
+        playerCombat = GameObject.Find("Player").GetComponent<PlayerCombat>();
         currentHealth = maxHealth;
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     //new
@@ -34,7 +44,28 @@ public class BanditBehaviour : MonoBehaviour
         find_player = transform.Find("/Player");
         dist = Vector2.Distance(find_player.position, transform.position);
 
-        Movement();
+        if (staggered)
+        {
+            rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            Movement();
+        }
+
+        //BREAKFREE
+        if (banditPolyColl.IsTouching(playerCombat.playerCircleColl))
+        {
+            GetComponent<Rigidbody2D>().AddForce(breakFree, ForceMode2D.Impulse);
+            /*
+            if (find_player.position.x < myTransform.position.x)
+                transform.position += Vector3.right * -2;
+            else if (find_player.position.x > myTransform.position.x)
+                transform.position += Vector3.right * 2;
+            */
+        }   
+
     }
 
     void Movement()
@@ -76,32 +107,51 @@ public class BanditBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
-        if (currentHealth > 0)
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("LightBandit_Death"))
         {
+            Staggering();
             animator.SetTrigger("Hurt");
-        }
+            animator.SetBool("IsMoving", false);
 
-        if (currentHealth <= 0)
-        {
-            Die();
+            if (currentHealth - damage > 0)
+            {
+                Invoke("NotStaggering", 0.25f);
+                currentHealth -= damage;
+            }
+            else if (currentHealth - damage <= 0)
+            {
+                currentHealth -= damage;
+                Die();
+            }
         }
     }
 
     void Die()
     {
+        animator.SetBool("IsMoving", false);
         animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
     }
 
     void RealDeath()
     {
-        GetComponent<CircleCollider2D>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<PolygonCollider2D>().enabled = false;
-        GetComponent<CapsuleCollider2D>().enabled = false;
         Destroy(gameObject);
         this.enabled = false;
     }
+
+    void Staggering()
+    {
+        rigidbody.drag = 100f;
+        rigidbody.gravityScale = 75f;
+        staggered = true;
+    }
+
+    void NotStaggering()
+    {
+        rigidbody.drag = 0f;
+        rigidbody.gravityScale = 50f;
+        staggered = false;
+    }
+
+    
 }
