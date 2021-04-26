@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class PlayerCombat : MonoBehaviour
     private EnemyHealth enemyHealth;
     private Enemy_behaviour enemy_behaviour;
     public int maxHealth = 100;
-    int currentHealth;
+    public int currentHealth;
     int enemyAttackDamage;
     private PlayerMovement playerMovement;
     private new Rigidbody2D rigidbody;
@@ -51,8 +52,11 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.K))
             {
-                Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
+                if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.Space))
+                {
+                    Attack();
+                    nextAttackTime = Time.time + 1f / attackRate;
+                }
             }
         }
 
@@ -66,13 +70,19 @@ public class PlayerCombat : MonoBehaviour
             rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
             frozen = false;
         }
+
+        //Makes attacks to be interruptable;
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Space)) 
+        {
+            CancelInvoke("DealDamage");
+        }
     }
 
     void Attack()
     {
         //Play att anim
         animator.SetTrigger("Attack");
-        Invoke("DealDamage", 0.3f);
+        Invoke("DealDamage", 0.25f);
     }
     void DealDamage() 
     {
@@ -142,8 +152,8 @@ public class PlayerCombat : MonoBehaviour
     {
         Staggering();
 
-        playerMovement = GetComponent<PlayerMovement>();
-        playerMovement.enabled = false;
+        transform.GetComponent<PlayerMovement>().enabled = false;
+        transform.GetComponent<Rigidbody2D>().isKinematic = true;
 
         //animator.SetBool("IsFalling", false);
         animator.SetBool("IsDead", true);
@@ -158,8 +168,9 @@ public class PlayerCombat : MonoBehaviour
 
     void RealDeath()
     {
-        Destroy(gameObject);
-        this.enabled = false;
+        //Destroy(gameObject);
+        //this.enabled = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OnTriggerEnter2D(Collider2D trig)
