@@ -249,7 +249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191543749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.977, y: 49.923, z: -10}
+  m_LocalPosition: {x: 37.707, y: -2.0970001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1230002992}
@@ -15035,7 +15035,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282350294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.977, y: 49.923, z: -10}
+  m_LocalPosition: {x: 37.707, y: -2.0970001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -27118,6 +27118,10 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 749052795917209669, guid: 5cac9f74f347bed45ba7059be2d7586a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 749052795917209669, guid: 5cac9f74f347bed45ba7059be2d7586a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.08
       objectReference: {fileID: 0}
@@ -27157,9 +27161,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3052911308110799754, guid: 5cac9f74f347bed45ba7059be2d7586a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8852181185228048736, guid: 5cac9f74f347bed45ba7059be2d7586a, type: 3}
       propertyPath: m_Name
       value: SkullFlame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852181185228048736, guid: 5cac9f74f347bed45ba7059be2d7586a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac9f74f347bed45ba7059be2d7586a, type: 3}
@@ -27428,6 +27440,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 828374359}
+    - target: {fileID: 1121144990854172107, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -756
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121144990854172107, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 513
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
 --- !u!1001 &4070143827281909534
@@ -27515,6 +27535,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8060138819192377877, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7037736743713362448, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -27523,17 +27547,37 @@ PrefabInstance:
       propertyPath: skele
       value: 
       objectReference: {fileID: 850088482}
+    - target: {fileID: 7037736743713362461, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
+      propertyPath: Whoosh
+      value: 
+      objectReference: {fileID: 8300000, guid: aca111ee1bb62174187459eff78d841b, type: 3}
+    - target: {fileID: 7037736743713362461, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
+      propertyPath: SwordSlice1
+      value: 
+      objectReference: {fileID: 8300000, guid: 29ccfb42685a5494690c8d4fa581a8a6, type: 3}
+    - target: {fileID: 7037736743713362461, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
+      propertyPath: SwordSlice2
+      value: 
+      objectReference: {fileID: 8300000, guid: 92e9c948296c31d448889ab8e42dfbb0, type: 3}
+    - target: {fileID: 7037736743713362461, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
+      propertyPath: SwordSlice3
+      value: 
+      objectReference: {fileID: 8300000, guid: c26de6993a62fad4d8b2a7a83705ac4d, type: 3}
+    - target: {fileID: 7037736743713362461, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
+      propertyPath: SwordSlice4
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e1d25e8dfb01264c92c7c05e2d3552a, type: 3}
     - target: {fileID: 7037736743713362463, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7037736743713362463, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.63
+      value: 36.36
       objectReference: {fileID: 0}
     - target: {fileID: 7037736743713362463, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 49.8
+      value: -2.22
       objectReference: {fileID: 0}
     - target: {fileID: 7037736743713362463, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
       propertyPath: m_LocalPosition.z

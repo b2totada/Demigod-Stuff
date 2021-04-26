@@ -13,7 +13,13 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
     public GameObject skele;
+    public AudioClip SwordSlice1;
+    public AudioClip SwordSlice2;
+    public AudioClip SwordSlice3;
+    public AudioClip SwordSlice4;
+    public AudioClip Whoosh;
 
+    private AudioSource AS;
     private BanditBehaviour bandit;
     private EnemyHealth enemyHealth;
     private Enemy_behaviour enemy_behaviour;
@@ -31,6 +37,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
+        AS = transform.GetComponent<AudioSource>();
         staggered = false;
         rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
@@ -90,6 +97,7 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         if (hitEnemies.Length != 0)
             enemy = hitEnemies[0];
+        AS.PlayOneShot(Whoosh);
 
         //Damage them
         int dmg = 0;
@@ -107,6 +115,15 @@ public class PlayerCombat : MonoBehaviour
 
         if (enemy != null)
         {
+            int randomSound = Random.Range(1, 5);
+            switch (randomSound)
+            {
+                case 1: AS.clip = SwordSlice1; break;
+                case 2: AS.clip = SwordSlice2; break;
+                case 3: AS.clip = SwordSlice3; break;
+                case 4: AS.clip = SwordSlice4; break;
+            }
+            AS.PlayOneShot(AS.clip);
             if (enemy.gameObject.CompareTag("Bandit"))
             {
                 enemy.GetComponent<BanditBehaviour>().TakeDamage(dmg);

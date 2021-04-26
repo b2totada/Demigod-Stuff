@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7507948362175819231}
   - component: {fileID: -6415177672070566828}
   - component: {fileID: 1331365978100012095}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SkullFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -139857961
-  m_SortingLayer: 7
+  m_SortingLayerID: 1130222271
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -8465687346892640621, guid: 54903138aaad0f547a488c3e0e24349c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,7 +94,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8852181185228048736}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3f6ded73a9346a44c9f2716850cdfbe1, type: 2}
   m_CullingMode: 0

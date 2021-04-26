@@ -18,7 +18,7 @@ public class SkullFlame : MonoBehaviour
         transform.GetComponent<Rigidbody2D>().MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
         if (transform.GetComponent<CircleCollider2D>().IsTouchingLayers(6))
         {
-
+            Destroy(gameObject);
         }
     }
 }
