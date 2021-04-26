@@ -6,10 +6,8 @@ using UnityEngine.SceneManagement;
 public class DoorOpen : MonoBehaviour
 {
     public GameObject player;
-    public GameObject interact;
     public Sprite doorClosed;
     public Sprite doorOpened;
-    public static bool interactSpawned;
     public string loadSceneName;
     private void Start()
     {
@@ -17,7 +15,7 @@ public class DoorOpen : MonoBehaviour
     }
     void Update()
     {
-        if ((transform.position - player.transform.position).magnitude < 1f)
+        if ((player.transform.position - transform.position).magnitude < 1)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
