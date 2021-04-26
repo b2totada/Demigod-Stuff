@@ -10,9 +10,12 @@ public class Necromancer : MonoBehaviour
     private bool inCombat;
     private int phase;
     private int attack2Counter;
+    private OrbSpawnerScript orbSpawnerScript;
     void Start()
     {
         phase = 0;
+        GameObject orbspawner = GameObject.Find("OrbSpawner");
+        orbSpawnerScript = orbspawner.GetComponent<OrbSpawnerScript>();
     }
 
     void Update()
@@ -24,20 +27,19 @@ public class Necromancer : MonoBehaviour
         }
         if (inCombat && phase == 1)
         {
-            Invoke("Attack2",3f);
+            //Invoke("Attack2", 3f);
         }
     }
     void Attack2() 
     {
         transform.GetComponent<Animator>().SetTrigger("Attack2");
-        Invoke("SpawnSkullFlame", 0.2f);
-        Instantiate(skullFlame, transform.position, transform.rotation);
-        Debug.Log("SkullFlame spawned");
-        //Invoke("Attack2", 0.5f);
+
+       
         attack2Counter++;
         if (attack2Counter == 3)
         {
-            CancelInvoke();
+            
+            //CancelInvoke();
             attack2Counter = 0;
         }
     }

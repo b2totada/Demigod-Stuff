@@ -10,6 +10,7 @@ TagManager:
   - Skeleton
   - Enemy_weapon
   - BanditSpot
+  - SkullOrb
   layers:
   - Default
   - TransparentFX

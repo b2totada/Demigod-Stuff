@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1331365978100012095}
   m_Layer: 8
   m_Name: SkullFlame
-  m_TagString: Untagged
+  m_TagString: SkullOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  rotationSpeed: 1
+  damage: 10
 --- !u!58 &-6415177672070566828
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -128,7 +130,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.02, y: 0.01}

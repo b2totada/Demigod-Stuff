@@ -111,6 +111,10 @@ public class PlayerCombat : MonoBehaviour
             {
                 dmg += attackDamage;
             }
+            else if (enemy.gameObject.CompareTag("SkullOrb"))
+            {
+                Destroy(enemy.gameObject);
+            }
         }
 
         if (enemy != null)
