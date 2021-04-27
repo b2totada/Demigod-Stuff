@@ -25,6 +25,7 @@ public class BanditBehaviour : MonoBehaviour
     private PlayerCombat playerCombat;
 
     public Vector3 breakFree = new Vector3(10.0f, 10.0f, 0.0f);
+    private bool canAttack = true;
     //
 
 
@@ -54,35 +55,62 @@ public class BanditBehaviour : MonoBehaviour
             Movement();
         }
 
+        /*
         //BREAKFREE
         if (banditPolyColl.IsTouching(playerCombat.playerCircleColl))
         {
             GetComponent<Rigidbody2D>().AddForce(breakFree, ForceMode2D.Impulse);
-            /*
+            
             if (find_player.position.x < myTransform.position.x)
                 transform.position += Vector3.right * -2;
             else if (find_player.position.x > myTransform.position.x)
                 transform.position += Vector3.right * 2;
-            */
-        }   
+            
+        }*/ 
 
+    }
+
+    void CanAttack()
+    {
+        canAttack = true;
+    }
+
+    void Attack()
+    {
+        animator.SetTrigger("Attack");
+        canAttack = false;
+        Invoke("CanAttack", 1f);
     }
 
     void Movement()
     {
-        animator.SetBool("IsMoving", true);
-
+        if (dist > 1.5f)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        
         if (dist < 10)
         {
-            if (find_player.position.x < myTransform.position.x)
+            if (dist <= 1.5f && canAttack)
             {
-                myTransform.position -= myTransform.right * speed * Time.deltaTime; // player is left of enemy, move left
-                gameObject.transform.localScale = new Vector2(1.5f, 1.5f);
+                Attack();
             }
-            else if (find_player.position.x > myTransform.position.x)
+            else if (dist > 1.5f && !animator.GetCurrentAnimatorStateInfo(0).IsName("LightBandit_Attack"))
             {
-                myTransform.position += myTransform.right * speed * Time.deltaTime; // player is right of enemy, move right
-                gameObject.transform.localScale = new Vector2(-1.5f, 1.5f);
+                if (find_player.position.x < myTransform.position.x)
+                {
+                    myTransform.position -= myTransform.right * speed * Time.deltaTime; // player is left of enemy, move left
+                    gameObject.transform.localScale = new Vector2(1.5f, 1.5f);
+                }
+                else if (find_player.position.x > myTransform.position.x)
+                {
+                    myTransform.position += myTransform.right * speed * Time.deltaTime; // player is right of enemy, move right
+                    gameObject.transform.localScale = new Vector2(-1.5f, 1.5f);
+                }
+            }
+            else
+            {
+                animator.SetBool("IsMoving", false);
             }
         }
         else
