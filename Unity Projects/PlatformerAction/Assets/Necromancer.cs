@@ -41,15 +41,15 @@ public class Necromancer : MonoBehaviour
         if (canCast && inCombat)
         {
             canCast = false;
+            AS.clip = SummonSkullFlame;
+            AS.PlayOneShot(AS.clip);
+            animator.SetTrigger("Attack2");
             Invoke("Cast", 1.5f);
         }
     }
 
     void Cast()
     {
-        AS.clip = SummonSkullFlame;
-        AS.PlayOneShot(AS.clip);
-        animator.SetTrigger("Attack2");
         Instantiate(skullFlame, orbspawner.transform.position, Quaternion.Euler(0, 0, 0));
         canCast = true;
     }
