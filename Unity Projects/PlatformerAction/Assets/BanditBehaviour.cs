@@ -29,6 +29,10 @@ public class BanditBehaviour : MonoBehaviour
     public LayerMask wallsLayerMask;
     public LayerMask playerLayer;
     private bool wall = false;
+    private bool canDetect;
+    private bool detection;
+    private CharacterController2D charCont;
+    private bool playerIsFacingRight;
     //
 
 
@@ -39,17 +43,28 @@ public class BanditBehaviour : MonoBehaviour
         playerCombat = GameObject.Find("Player").GetComponent<PlayerCombat>();
         currentHealth = maxHealth;
         rigidbody = GetComponent<Rigidbody2D>();
+        canDetect = true;
+        charCont = GameObject.Find("Player").GetComponent<CharacterController2D>();
     }
 
     //new
     void Update()
     {
-        if (AvoidTrigger())
-            Debug.Log("Player detected!");
-
         myTransform = gameObject.transform;
         find_player = transform.Find("/Player");
         dist = Vector2.Distance(find_player.position, transform.position);
+
+        //Avoid
+        playerIsFacingRight = charCont.m_FacingRight;
+        detection = AvoidTrigger();
+
+        if (detection && canDetect)
+        {
+            canDetect = false;
+            Avoid();
+            Invoke("CanDetect", 0.5f);
+        }
+        //
 
         if (staggered || !canAttack)
         {
@@ -84,8 +99,23 @@ public class BanditBehaviour : MonoBehaviour
             else if (find_player.position.x > myTransform.position.x)
                 transform.position += Vector3.right * 2;
             
-        }*/ 
+        }*/
+    }
 
+    void Avoid()
+    {
+        if (charCont.m_FacingRight)
+        {
+            transform.position += Vector3.right * -3;
+        }
+        else
+        {
+            transform.position += Vector3.right * 3;
+        }
+    }
+    void CanDetect()
+    {
+        canDetect = true;
     }
 
     bool AvoidTrigger()
