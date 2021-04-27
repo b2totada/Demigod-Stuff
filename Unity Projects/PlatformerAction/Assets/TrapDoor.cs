@@ -7,6 +7,7 @@ public class TrapDoor : MonoBehaviour
     public Sprite open;
     public Sprite closed;
     public GameObject player;
+    public GameObject BossHealthBar;
     private PolygonCollider2D trigger;
     private BoxCollider2D doorColl;
     private BoxCollider2D playerColl;
@@ -26,7 +27,7 @@ public class TrapDoor : MonoBehaviour
             doorColl.enabled = true;
             trigger.enabled = false;
             transform.GetComponent<SpriteRenderer>().sprite = closed;
-
+            BossHealthBar.SetActive(true);
         }
     }
 }

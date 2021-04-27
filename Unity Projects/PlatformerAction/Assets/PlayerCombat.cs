@@ -55,7 +55,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.K))
             {
-                if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.Space))
+                if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.Space) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Player_Jump") && !animator.GetCurrentAnimatorStateInfo(0).IsName("Player_Fall"))
                 {
                     Attack();
                     nextAttackTime = Time.time + 1f / attackRate;
@@ -85,7 +85,7 @@ public class PlayerCombat : MonoBehaviour
     {
         //Play att anim
         animator.SetTrigger("Attack");
-        Invoke("DealDamage", 0.25f);
+        Invoke("DealDamage", 0.20f);
     }
     void DealDamage() 
     {
@@ -111,6 +111,10 @@ public class PlayerCombat : MonoBehaviour
             {
                 Destroy(enemy.gameObject);
             }
+            else if (enemy.gameObject.CompareTag("Necromancer"))
+            {
+                dmg += attackDamage;
+            }
         }
 
         if (enemy != null)
@@ -131,6 +135,10 @@ public class PlayerCombat : MonoBehaviour
             else if (enemy.gameObject.CompareTag("Skeleton"))
             {
                 enemy.GetComponentInChildren<EnemyHealth>().TakeDamage(dmg);
+            }
+            else if (enemy.gameObject.CompareTag("Necromancer"))
+            {
+                enemy.GetComponent<Necromancer>().TakeDamage(dmg);
             }
         }
     }
@@ -169,7 +177,6 @@ public class PlayerCombat : MonoBehaviour
         Staggering();
 
         transform.GetComponent<PlayerMovement>().enabled = false;
-        //transform.GetComponent<Rigidbody2D>().isKinematic = true;
 
         //animator.SetBool("IsFalling", false);
         animator.SetBool("IsDead", true);

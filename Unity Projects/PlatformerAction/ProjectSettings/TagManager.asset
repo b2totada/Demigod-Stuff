@@ -12,6 +12,7 @@ TagManager:
   - BanditSpot
   - SkullOrb
   - Bandit_weapon
+  - Necromancer
   layers:
   - Default
   - TransparentFX

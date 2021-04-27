@@ -6,10 +6,8 @@ public class SkullFlame : MonoBehaviour
 {
     private GameObject player;
     public int speed = 5;
-    public float rotationSpeed = 1f;
+    public float rotationSpeed = 200f;
     public int damage = 10;
-    private Quaternion rotateToPlayer;
-    private Vector3 dir;
     private Rigidbody2D rb;
 
     private void Start()
@@ -18,13 +16,13 @@ public class SkullFlame : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        dir = (player.transform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        rotateToPlayer = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotateToPlayer, Time.deltaTime * rotationSpeed);
-        rb.velocity = new Vector2(dir.x * speed, dir.y * speed);
+        Vector2 point2Target = (Vector2)transform.position - (Vector2)player.transform.position;
+        point2Target.Normalize();
+        float value = Vector3.Cross(point2Target, transform.right).z;
+        rb.angularVelocity = rotationSpeed * value;
+        rb.velocity = transform.right * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
