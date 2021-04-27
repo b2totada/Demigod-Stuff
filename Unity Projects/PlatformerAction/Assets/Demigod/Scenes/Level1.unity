@@ -779,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &440768379
 Animator:
   serializedVersion: 3
@@ -3748,7 +3748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   animator: {fileID: 859723975}
-  speed: 4.5
+  speed: 7
   spot1: 34
   spot2: 35
   staggered: 0
@@ -5160,6 +5160,7 @@ MonoBehaviour:
   wallsLayerMask:
     serializedVersion: 2
     m_Bits: 1024
+  trigCheck: {fileID: 0}
 --- !u!1 &1588938645
 GameObject:
   m_ObjectHideFlags: 0
