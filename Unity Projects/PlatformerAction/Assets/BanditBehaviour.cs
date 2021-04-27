@@ -26,6 +26,8 @@ public class BanditBehaviour : MonoBehaviour
 
     public Vector3 breakFree = new Vector3(10.0f, 10.0f, 0.0f);
     private bool canAttack = true;
+    public LayerMask wallsLayerMask;
+    private bool wall = false;
     //
 
 
@@ -52,7 +54,19 @@ public class BanditBehaviour : MonoBehaviour
         else
         {
             rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-            Movement();
+
+            if (WallDetection())
+                wall = true;
+
+            if (wall)
+            { 
+                ReturnToSpot();
+                Invoke("NoWall", 2f);
+            }
+            else
+            {
+                Movement();
+            }
         }
 
         /*
@@ -68,6 +82,44 @@ public class BanditBehaviour : MonoBehaviour
             
         }*/ 
 
+    }
+
+    void NoWall()
+    {
+        wall = false;
+    }
+
+    void ReturnToSpot()
+    {
+        if (spot2 < myTransform.position.x)
+        {
+            myTransform.position -= myTransform.right * speed * Time.deltaTime; // spot is left of enemy, move left
+            gameObject.transform.localScale = new Vector2(1.5f, 1.5f);
+        }
+        else if (spot1 > myTransform.position.x)
+        {
+            myTransform.position += myTransform.right * speed * Time.deltaTime; // spot is right of enemy, move right
+            gameObject.transform.localScale = new Vector2(-1.5f, 1.5f);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
+    }
+
+    bool WallDetection()
+    {
+        float scale = gameObject.transform.localScale.x;
+        if (scale == 1.5f)   //facing left
+        {
+            return Physics2D.CircleCast(gameObject.GetComponent<CircleCollider2D>().bounds.center, 0.1f, Vector2.left, 5f, wallsLayerMask).collider != null;
+        }
+        else if (scale == -1.5f)    //facing right
+        {
+            return Physics2D.CircleCast(gameObject.GetComponent<CircleCollider2D>().bounds.center, 0.1f, Vector2.right, 5f, wallsLayerMask).collider != null;
+        }
+
+        return false;
     }
 
     void CanAttack()
@@ -89,7 +141,7 @@ public class BanditBehaviour : MonoBehaviour
             animator.SetBool("IsMoving", true);
         }
         
-        if (dist < 10)
+        if (dist < 7)
         {
             if (dist <= 1.5f && canAttack)
             {
@@ -115,20 +167,7 @@ public class BanditBehaviour : MonoBehaviour
         }
         else
         {
-            if (spot2 < myTransform.position.x)
-            {
-                myTransform.position -= myTransform.right * speed * Time.deltaTime; // spot is left of enemy, move left
-                gameObject.transform.localScale = new Vector2(1.5f, 1.5f);
-            }
-            else if (spot1 > myTransform.position.x)
-            {
-                myTransform.position += myTransform.right * speed * Time.deltaTime; // spot is right of enemy, move right
-                gameObject.transform.localScale = new Vector2(-1.5f, 1.5f);
-            }
-            else
-            {
-                animator.SetBool("IsMoving", false);
-            }
+            ReturnToSpot();
         }
     }
     //
