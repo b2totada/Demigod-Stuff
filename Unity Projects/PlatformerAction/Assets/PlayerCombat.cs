@@ -187,7 +187,7 @@ public class PlayerCombat : MonoBehaviour
         bandit.enabled = false;
     }
 
-    void RealDeath()
+    public void RealDeath()
     {
         //Destroy(gameObject);
         //this.enabled = false;
