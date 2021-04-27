@@ -4668,6 +4668,9 @@ MonoBehaviour:
   staggered: 0
   banditPolyColl: {fileID: 859723976}
   breakFree: {x: 10, y: 10, z: 0}
+  wallsLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &951813677
 GameObject:
   m_ObjectHideFlags: 0
