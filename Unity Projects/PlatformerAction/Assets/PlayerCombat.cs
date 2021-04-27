@@ -171,7 +171,7 @@ public class PlayerCombat : MonoBehaviour
         transform.GetComponent<PlayerMovement>().enabled = false;
         //transform.GetComponent<Rigidbody2D>().isKinematic = true;
 
-        animator.SetBool("IsFalling", false);
+        //animator.SetBool("IsFalling", false);
         animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
 
