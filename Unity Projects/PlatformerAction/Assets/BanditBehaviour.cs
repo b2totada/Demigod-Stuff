@@ -45,7 +45,7 @@ public class BanditBehaviour : MonoBehaviour
         find_player = transform.Find("/Player");
         dist = Vector2.Distance(find_player.position, transform.position);
 
-        if (staggered)
+        if (staggered || !canAttack)
         {
             rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         }
@@ -79,7 +79,7 @@ public class BanditBehaviour : MonoBehaviour
     {
         animator.SetTrigger("Attack");
         canAttack = false;
-        Invoke("CanAttack", 1f);
+        Invoke("CanAttack", 0.5f);
     }
 
     void Movement()
