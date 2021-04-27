@@ -8,13 +8,13 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
 
     private Enemy_behaviour enemy_behaviour;
-    private GameObject skeleton;
+    private Transform skeleton;
 
     //new
     public LayerMask wallsLayerMask;
     private CircleCollider2D circlecollider2d;
     private float rotation;
-    private GameObject trigCheck;
+    public GameObject trigCheck;
 
     private TriggerAreaCheck trigArea;
     //
@@ -24,10 +24,9 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        skeleton = GameObject.Find("Skeleton1");
-        enemy_behaviour = skeleton.GetComponent<Enemy_behaviour>();
-        trigCheck = GameObject.Find("triggerArea");
-        trigArea = GameObject.Find("triggerArea").GetComponent<TriggerAreaCheck>();
+        skeleton = GetComponentInParent<Transform>();
+        enemy_behaviour = GetComponentInParent<Enemy_behaviour>();
+        trigArea = trigCheck.GetComponent<TriggerAreaCheck>();
     }
 
     //new
@@ -80,7 +79,7 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<PolygonCollider2D>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         */
-        Destroy(skeleton);
+        Destroy(gameObject);
         this.enabled = false;
     }
 

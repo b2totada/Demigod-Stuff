@@ -32,7 +32,7 @@ public class Enemy_behaviour : MonoBehaviour
         SelectTarget();
         intTimer = timer; //Store the inital value of timer
         anim = GetComponent<Animator>();
-        enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
+        enemyHealth = GetComponentInChildren<EnemyHealth>();
     }
 
     void Update()

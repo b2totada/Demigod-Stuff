@@ -446,6 +446,7 @@ MonoBehaviour:
   wallsLayerMask:
     serializedVersion: 2
     m_Bits: 1024
+  trigCheck: {fileID: 8478224395333213493}
 --- !u!1 &8478224396532213945
 GameObject:
   m_ObjectHideFlags: 0

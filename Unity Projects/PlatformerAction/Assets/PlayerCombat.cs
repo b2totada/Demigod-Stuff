@@ -41,15 +41,11 @@ public class PlayerCombat : MonoBehaviour
         staggered = false;
         rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-        if (GameObject.Find("Skeleton1") != null)
-        {
-            enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
-            enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
-        }
-        if (GameObject.Find("Bandit1") != null)
-        {
-            bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
-        }
+
+        enemy_behaviour = skele.GetComponent<Enemy_behaviour>();
+        enemyHealth = skele.GetComponentInChildren<EnemyHealth>();
+        //bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
+
         playerMoves = GetComponent<PlayerMovement>();
     }
 
@@ -134,8 +130,7 @@ public class PlayerCombat : MonoBehaviour
             }
             else if (enemy.gameObject.CompareTag("Skeleton"))
             {
-                skele = GameObject.Find("skeleton1_collider");
-                skele.GetComponent<EnemyHealth>().TakeDamage(dmg);
+                enemy.GetComponentInChildren<EnemyHealth>().TakeDamage(dmg);
             }
         }
     }
@@ -184,7 +179,7 @@ public class PlayerCombat : MonoBehaviour
         enemy_behaviour.anim.SetBool("Rage", false);
         enemy_behaviour.enabled = false;
         enemyHealth.enabled = false;
-        bandit.enabled = false;
+        //bandit.enabled = false;
     }
 
     public void RealDeath()
@@ -198,7 +193,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (trig.gameObject.tag == "Enemy_weapon")
         {
-            enemy_behaviour = GameObject.Find("Skeleton1").GetComponent<Enemy_behaviour>();
+            enemy_behaviour = trig.gameObject.GetComponentInParent<Enemy_behaviour>();
             enemyAttackDamage = enemy_behaviour.attackDamage;
             TakeDamage(enemyAttackDamage);
         }
