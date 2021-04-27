@@ -169,9 +169,9 @@ public class PlayerCombat : MonoBehaviour
         Staggering();
 
         transform.GetComponent<PlayerMovement>().enabled = false;
-        transform.GetComponent<Rigidbody2D>().isKinematic = true;
+        //transform.GetComponent<Rigidbody2D>().isKinematic = true;
 
-        //animator.SetBool("IsFalling", false);
+        animator.SetBool("IsFalling", false);
         animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
 
@@ -184,8 +184,8 @@ public class PlayerCombat : MonoBehaviour
 
     public void RealDeath()
     {
-        //Destroy(gameObject);
-        //this.enabled = false;
+        Destroy(gameObject);
+        this.enabled = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
