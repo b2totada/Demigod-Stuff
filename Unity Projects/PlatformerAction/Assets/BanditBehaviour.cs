@@ -27,6 +27,7 @@ public class BanditBehaviour : MonoBehaviour
     public Vector3 breakFree = new Vector3(10.0f, 10.0f, 0.0f);
     private bool canAttack = true;
     public LayerMask wallsLayerMask;
+    public LayerMask playerLayer;
     private bool wall = false;
     //
 
@@ -43,6 +44,9 @@ public class BanditBehaviour : MonoBehaviour
     //new
     void Update()
     {
+        if (AvoidTrigger())
+            Debug.Log("Player detected!");
+
         myTransform = gameObject.transform;
         find_player = transform.Find("/Player");
         dist = Vector2.Distance(find_player.position, transform.position);
@@ -82,6 +86,11 @@ public class BanditBehaviour : MonoBehaviour
             
         }*/ 
 
+    }
+
+    bool AvoidTrigger()
+    {
+        return Physics2D.BoxCast(gameObject.GetComponent<BoxCollider2D>().transform.position, new Vector2(0.45f, 0.75f), 0f, new Vector2(0f, 1f), 20f,  playerLayer).collider != null;
     }
 
     void NoWall()
