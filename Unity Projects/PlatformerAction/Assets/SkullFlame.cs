@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SkullFlame : MonoBehaviour
 {
+    private Rigidbody2D rb;
     private GameObject player;
+
     public int speed;
     public float rotationSpeed;
-    public int damage;
-    private Rigidbody2D rb;
+    public int damage;  
+    public GameObject Necromancer;
     
     private void Start()
     {
@@ -24,6 +26,11 @@ public class SkullFlame : MonoBehaviour
         float value = Vector3.Cross(point2Target, transform.right).z;
         rb.angularVelocity = rotationSpeed * value;
         rb.velocity = transform.right * speed;
+
+        if (Necromancer.transform.GetComponent<Necromancer>().currentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,10 +40,6 @@ public class SkullFlame : MonoBehaviour
             player.GetComponent<PlayerCombat>().TakeDamage(damage);
             player.GetComponent<PlayerCombat>().Explosion();
             Destroy(this.gameObject);
-        }
-        else
-        {
-            //Destroy(this.gameObject);
         }
     }
     void FlipIfUpsideDown() 
