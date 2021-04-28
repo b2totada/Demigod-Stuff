@@ -9,7 +9,7 @@ public class SkullFlame : MonoBehaviour
     public float rotationSpeed;
     public int damage;
     private Rigidbody2D rb;
-
+    
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -31,7 +31,8 @@ public class SkullFlame : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             player.GetComponent<PlayerCombat>().TakeDamage(damage);
-            //Destroy(this.gameObject);
+            player.GetComponent<PlayerCombat>().Explosion();
+            Destroy(this.gameObject);
         }
         else
         {
