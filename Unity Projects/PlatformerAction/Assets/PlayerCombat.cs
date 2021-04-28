@@ -154,21 +154,24 @@ public class PlayerCombat : MonoBehaviour
     //new
     public void TakeDamage(int damage)
     {
-        if (!playerMoves.IsGrounded())
+        if (!animator.GetBool("IsDead"))
         {
-            Staggering();
-            Invoke("NotStaggering", 0.5f);
-        }
+            if (!playerMoves.IsGrounded())
+            {
+                Staggering();
+                Invoke("NotStaggering", 0.5f);
+            }
 
-        if (currentHealth - damage > 0)
-        {
-            currentHealth -= damage;
-            animator.SetTrigger("Hurt");
-        }
-        else if (currentHealth - damage <= 0)
-        {
-            currentHealth -= damage;
-            Die();
+            if (currentHealth - damage > 0)
+            {
+                currentHealth -= damage;
+                animator.SetTrigger("Hurt");
+            }
+            else if (currentHealth - damage <= 0)
+            {
+                currentHealth -= damage;
+                Die();
+            }
         }
     }
 

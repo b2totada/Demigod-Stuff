@@ -5,9 +5,9 @@ using UnityEngine;
 public class SkullFlame : MonoBehaviour
 {
     private GameObject player;
-    public int speed = 5;
-    public float rotationSpeed = 200f;
-    public int damage = 10;
+    public int speed;
+    public float rotationSpeed;
+    public int damage;
     private Rigidbody2D rb;
 
     private void Start()
@@ -18,6 +18,7 @@ public class SkullFlame : MonoBehaviour
 
     void FixedUpdate()
     {
+        FlipIfUpsideDown();
         Vector2 point2Target = (Vector2)transform.position - (Vector2)player.transform.position;
         point2Target.Normalize();
         float value = Vector3.Cross(point2Target, transform.right).z;
@@ -30,11 +31,24 @@ public class SkullFlame : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             player.GetComponent<PlayerCombat>().TakeDamage(damage);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
         else
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
+    }
+    void FlipIfUpsideDown() 
+    {
+        if (transform.localEulerAngles.z < 90 || transform.localEulerAngles.z > 270)
+        {
+            transform.GetComponent<SpriteRenderer>().flipY = false;
+        }
+
+        if (transform.localEulerAngles.z > 90 && transform.localEulerAngles.z < 270)
+        {
+            transform.GetComponent<SpriteRenderer>().flipY = true;
+        }
+
     }
 }
