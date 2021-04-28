@@ -165,15 +165,15 @@ public class Necromancer : MonoBehaviour
 
     void Die()
     {
-        animator.Play("Death", 0);
+        animator.Play("Death");
         Invoke("RealDeath", 2);
         inCombat = false;
+        canCast = false;
     }
 
     void RealDeath()
     {
         Destroy(gameObject);
-        this.enabled = false;
     }
     void TowardsPlayer() 
     {

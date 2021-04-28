@@ -10,6 +10,7 @@ public class BanditBehaviour : MonoBehaviour
     public Animator animator;
 
     //new
+    public int damage;
     public float speed;
     public float spot1;
     public float spot2;
@@ -33,6 +34,7 @@ public class BanditBehaviour : MonoBehaviour
     private bool detection;
     private CharacterController2D charCont;
     private bool playerIsFacingRight;
+    public GameObject hitbox;
     //
 
 
@@ -104,13 +106,16 @@ public class BanditBehaviour : MonoBehaviour
 
     void Avoid()
     {
-        if (charCont.m_FacingRight)
+        if (!animator.GetBool("IsDead"))
         {
-            transform.position += Vector3.right * -3;
-        }
-        else
-        {
-            transform.position += Vector3.right * 3;
+            if (charCont.m_FacingRight)
+            {
+                transform.position += Vector3.right * -3;
+            }
+            else
+            {
+                transform.position += Vector3.right * 3;
+            }
         }
     }
     void CanDetect()
@@ -170,7 +175,16 @@ public class BanditBehaviour : MonoBehaviour
     {
         animator.SetTrigger("Attack");
         canAttack = false;
-        Invoke("CanAttack", 0.5f);
+        Invoke("CanAttack", 0.6f);
+        Invoke("DealDamage", 0.2f);
+    }
+
+    void DealDamage() 
+    {       
+        if (hitbox.GetComponent<CircleCollider2D>().IsTouching(find_player.GetComponent<BoxCollider2D>()))
+        {
+            playerCombat.TakeDamage(damage);
+        }     
     }
 
     void Movement()
@@ -237,6 +251,11 @@ public class BanditBehaviour : MonoBehaviour
         animator.SetBool("IsMoving", false);
         animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
+        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<PolygonCollider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
     void RealDeath()
@@ -257,7 +276,5 @@ public class BanditBehaviour : MonoBehaviour
         rigidbody.drag = 0f;
         rigidbody.gravityScale = 50f;
         staggered = false;
-    }
-
-    
+    }   
 }

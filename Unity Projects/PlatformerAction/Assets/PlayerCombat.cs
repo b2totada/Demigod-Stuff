@@ -52,6 +52,12 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
+
+        if (currentHealth > 100) //Anti over-heal
+        {
+            currentHealth = 100;
+        }
+
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.K))

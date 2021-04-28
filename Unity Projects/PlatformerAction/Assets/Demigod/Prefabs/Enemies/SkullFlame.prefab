@@ -121,6 +121,7 @@ MonoBehaviour:
   speed: 4
   rotationSpeed: 100
   damage: 5
+  Necromancer: {fileID: 3452979973054333306, guid: 3c054d7de2bcde545b414888760a9b2b, type: 3}
 --- !u!58 &-6415177672070566828
 CircleCollider2D:
   m_ObjectHideFlags: 0
