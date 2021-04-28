@@ -11,9 +11,10 @@ public class Necromancer : MonoBehaviour
     public GameObject orbspawner;
     public int maxHealth;
     public int currentHealth;
+    public int phaseController;
     private Animator animator;
     private bool inCombat;
-    [HideInInspector] public int phase;
+    private int phase;
     private AudioSource AS;
     private int attack2Counter;
     private bool canCast;
@@ -29,6 +30,27 @@ public class Necromancer : MonoBehaviour
 
     void Update()
     {
+        if (trapDoor.GetComponent<BoxCollider2D>().enabled && !inCombat)
+        {
+            inCombat = true;
+            phase = 1;
+            Debug.Log("Combat started! Phase: " + phase);
+            Invoke("CanCastAgain", 2f);
+        }
+
+        if (phaseController == 2 && phase == 1)
+        {
+            StartPhase2();
+        }
+        if (phaseController == 3 && phase == 2)
+        {
+            StartPhase3();
+        }
+        if (phaseController == 4 && phase == 3)
+        {
+            StartPhase4();
+        }
+
         if (!IsJumping)
         {
             TowardsPlayer();
@@ -39,14 +61,6 @@ public class Necromancer : MonoBehaviour
             currentHealth = 0;
         }
 
-        if (trapDoor.GetComponent<BoxCollider2D>().enabled && !inCombat)
-        {            
-            inCombat = true;
-            phase = 1;
-            Debug.Log("Combat started! Phase: " + phase);
-            Invoke("CanCastAgain", 2f);
-        }
-
         if (canCast && inCombat && phase < 3)
         {
             canCast = false;
@@ -55,6 +69,22 @@ public class Necromancer : MonoBehaviour
             animator.SetTrigger("Attack2");
             Invoke("Cast", 0.2f);
         }
+        if (canCast && inCombat && phase == 3)
+        {
+            canCast = false;
+            AS.clip = SummonSkullFlame;
+            AS.PlayOneShot(AS.clip);
+            animator.SetTrigger("Attack2");
+            Invoke("Cast2", 0.2f);
+        }
+        if (canCast && inCombat && phase == 4)
+        {
+            canCast = false;
+            AS.clip = SummonSkullFlame;
+            AS.PlayOneShot(AS.clip);
+            animator.SetTrigger("Attack2");
+            Invoke("Cast2", 0.2f);
+        }
         if (currentHealth < 400 && currentHealth > 300 && phase == 1)
         {
             IsJumping = true;
@@ -62,8 +92,25 @@ public class Necromancer : MonoBehaviour
             CancelInvoke("Cast");
             canCast = false;
             animator.Play("JumpTo2");
-            Invoke("CanCastAgain", 4f);
-            Invoke("StartPhase2", 2.5f);
+            Invoke("CanCastAgain", 3f);
+        }
+        if (currentHealth < 300 && currentHealth > 200 && phase == 2)
+        {
+            IsJumping = true;
+            CancelInvoke("CanCastAgain");
+            CancelInvoke("Cast");
+            canCast = false;
+            animator.Play("JumpTo3");
+            Invoke("CanCastAgain", 1.6f);
+        }
+        if (currentHealth < 200 && phase == 3)
+        {
+            IsJumping = true;
+            CancelInvoke("CanCastAgain");
+            CancelInvoke("Cast");
+            canCast = false;
+            animator.Play("JumpTo4");
+            Invoke("CanCastAgain", 1f);
         }
     }
 
@@ -79,6 +126,19 @@ public class Necromancer : MonoBehaviour
         }
         
         Invoke("CanCastAgain", 1.3f);
+    }
+    void Cast2()
+    {
+        if (player.transform.position.x > transform.position.x)
+        {
+            Instantiate(skullFlame, orbspawner.transform.position, Quaternion.Euler(0, 0, 0));
+        }
+        if (player.transform.position.x < transform.position.x)
+        {
+            Instantiate(skullFlame, orbspawner.transform.position, Quaternion.Euler(0, 180, 0));
+        }
+
+        Invoke("CanCastAgain", 1f);
     }
 
     void CanCastAgain() 
@@ -105,8 +165,9 @@ public class Necromancer : MonoBehaviour
 
     void Die()
     {
-        animator.SetBool("IsDead", true);
-        //("RealDeath", 2);
+        animator.Play("Death", 0);
+        Invoke("RealDeath", 2);
+        inCombat = false;
     }
 
     void RealDeath()
@@ -130,10 +191,22 @@ public class Necromancer : MonoBehaviour
         Debug.Log("Boss hp: " + currentHealth + "   phase: " + phase);
         Invoke("NecroDebug", 1f);
     }
-    void StartPhase2() 
+    public void StartPhase2() 
     {
         IsJumping = false;
         phase = 2;
+        animator.Play("Idle");
+    }
+    public void StartPhase3() 
+    {
+        IsJumping = false;
+        phase = 3;
+        animator.Play("Idle");
+    }
+    public void StartPhase4()
+    {
+        IsJumping = false;
+        phase = 4;
         animator.Play("Idle");
     }
 }
