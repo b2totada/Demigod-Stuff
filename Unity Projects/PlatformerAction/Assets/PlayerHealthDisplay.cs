@@ -7,6 +7,9 @@ public class PlayerHealthDisplay : MonoBehaviour
 {
     private Slider slider;
     public GameObject player;
+    public GameObject potion1;
+    public GameObject potion2;
+    public GameObject potion3;
     private void Start()
     {
         slider = transform.GetComponent<Slider>();
@@ -24,7 +27,23 @@ public class PlayerHealthDisplay : MonoBehaviour
         {
             slider.value = 0;
         }
-
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (potion3.GetComponent<Image>().enabled == true)
+            {
+                potion3.GetComponent<Image>().enabled = false;
+                player.GetComponent<PlayerCombat>().currentHealth += 25;
+            }
+            else if (potion2.GetComponent<Image>().enabled == true)
+            {
+                potion2.GetComponent<Image>().enabled = false;
+                player.GetComponent<PlayerCombat>().currentHealth += 25;
+            }
+            else if (potion1.GetComponent<Image>().enabled == true)
+            {
+                potion1.GetComponent<Image>().enabled = false;
+                player.GetComponent<PlayerCombat>().currentHealth += 25;
+            }
+        }
     }
 }

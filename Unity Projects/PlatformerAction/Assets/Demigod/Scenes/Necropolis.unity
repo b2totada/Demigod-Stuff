@@ -15628,6 +15628,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 407277251609042957, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1121144989537920874, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
       propertyPath: m_Name
       value: GUI
@@ -15728,6 +15732,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1650978628}
+    - target: {fileID: 1552481352437991150, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907937372613866378, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245309086371794899, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
 --- !u!1 &1597662519
