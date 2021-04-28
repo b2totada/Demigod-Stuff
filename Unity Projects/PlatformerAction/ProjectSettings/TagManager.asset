@@ -13,11 +13,13 @@ TagManager:
   - SkullOrb
   - Bandit_weapon
   - Necromancer
+  - Big F Rock
+  - Foreground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
   - Player
