@@ -17,6 +17,7 @@ public class Necromancer : MonoBehaviour
     private AudioSource AS;
     private int attack2Counter;
     private bool canCast;
+    private bool IsJumping;
     void Start()
     {
         NecroDebug();
@@ -28,7 +29,10 @@ public class Necromancer : MonoBehaviour
 
     void Update()
     {
-        TowardsPlayer();
+        if (!IsJumping)
+        {
+            TowardsPlayer();
+        }       
 
         if (currentHealth < 0)
         {
@@ -53,6 +57,7 @@ public class Necromancer : MonoBehaviour
         }
         if (currentHealth < 400 && currentHealth > 300 && phase == 1)
         {
+            IsJumping = true;
             CancelInvoke("CanCastAgain");
             CancelInvoke("Cast");
             canCast = false;
@@ -127,6 +132,7 @@ public class Necromancer : MonoBehaviour
     }
     void StartPhase2() 
     {
+        IsJumping = false;
         phase = 2;
         animator.Play("Idle");
     }

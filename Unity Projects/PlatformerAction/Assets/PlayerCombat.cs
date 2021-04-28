@@ -18,6 +18,7 @@ public class PlayerCombat : MonoBehaviour
     public AudioClip SwordSlice3;
     public AudioClip SwordSlice4;
     public AudioClip Whoosh;
+    public AudioClip explosion;
 
     private AudioSource AS;
     private BanditBehaviour bandit;
@@ -222,9 +223,12 @@ public class PlayerCombat : MonoBehaviour
         rigidbody.gravityScale = 5f;
         staggered = false;
     }
+    public void Explosion()
+    {
+        AS.clip = explosion;
+        AS.PlayOneShot(AS.clip);
+    }
 }
-
-
 
 
 /*
