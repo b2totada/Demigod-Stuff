@@ -42,7 +42,7 @@ public class Enemy_behaviour : MonoBehaviour
             Move();
         }
 
-        if (!InsideofLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_rage"))
+        if (!InsideofLimits() && !inRange) //&& !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_rage"))
         {
             SelectTarget();
         }
@@ -170,7 +170,6 @@ public class Enemy_behaviour : MonoBehaviour
 
     public void Die()
     {
-        anim.SetBool("IsDead", true);
         this.enabled = false;
     }
 }
