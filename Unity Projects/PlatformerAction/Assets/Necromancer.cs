@@ -85,7 +85,7 @@ public class Necromancer : MonoBehaviour
             animator.SetTrigger("Attack2");
             Invoke("Cast2", 0.2f);
         }
-        if (currentHealth < 400 && currentHealth > 300 && phase == 1)
+        if (currentHealth < 350 && currentHealth > 300 && phase == 1)
         {
             IsJumping = true;
             CancelInvoke("CanCastAgain");
@@ -94,7 +94,7 @@ public class Necromancer : MonoBehaviour
             animator.Play("JumpTo2");
             Invoke("CanCastAgain", 3f);
         }
-        if (currentHealth < 300 && currentHealth > 200 && phase == 2)
+        if (currentHealth < 250 && currentHealth > 200 && phase == 2)
         {
             IsJumping = true;
             CancelInvoke("CanCastAgain");
@@ -103,7 +103,7 @@ public class Necromancer : MonoBehaviour
             animator.Play("JumpTo3");
             Invoke("CanCastAgain", 1.6f);
         }
-        if (currentHealth < 200 && phase == 3)
+        if (currentHealth < 150 && phase == 3)
         {
             IsJumping = true;
             CancelInvoke("CanCastAgain");

@@ -29,20 +29,23 @@ public class PlayerHealthDisplay : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (potion3.GetComponent<Image>().enabled == true)
+            if (player.GetComponent<PlayerCombat>().currentHealth > 0)
             {
-                potion3.GetComponent<Image>().enabled = false;
-                player.GetComponent<PlayerCombat>().currentHealth += 25;
-            }
-            else if (potion2.GetComponent<Image>().enabled == true)
-            {
-                potion2.GetComponent<Image>().enabled = false;
-                player.GetComponent<PlayerCombat>().currentHealth += 25;
-            }
-            else if (potion1.GetComponent<Image>().enabled == true)
-            {
-                potion1.GetComponent<Image>().enabled = false;
-                player.GetComponent<PlayerCombat>().currentHealth += 25;
+                if (potion3.GetComponent<Image>().enabled == true)
+                {
+                    potion3.GetComponent<Image>().enabled = false;
+                    player.GetComponent<PlayerCombat>().currentHealth += 25;
+                }
+                else if (potion2.GetComponent<Image>().enabled == true)
+                {
+                    potion2.GetComponent<Image>().enabled = false;
+                    player.GetComponent<PlayerCombat>().currentHealth += 25;
+                }
+                else if (potion1.GetComponent<Image>().enabled == true)
+                {
+                    potion1.GetComponent<Image>().enabled = false;
+                    player.GetComponent<PlayerCombat>().currentHealth += 25;
+                }
             }
         }
     }
