@@ -44,6 +44,12 @@ public class EnemyHealth : MonoBehaviour
                 enemy_behaviour.SelectTarget();
                 Invoke("TrigAreaActive", 1);
             }
+
+        if (currentHealth <= 0)
+        {
+            enemy_behaviour.anim.SetBool("IsDead", true);
+            Die();
+        }
     }
     //
 
@@ -53,33 +59,35 @@ public class EnemyHealth : MonoBehaviour
         {
             currentHealth -= damage;
             enemy_behaviour.Hurt();
-            //animator.SetTrigger("Hurt");
         }
         else if (currentHealth - damage <= 0)
         {
             currentHealth -= damage;
             trigArea.enabled = false;
-            Die();
+            //Die();
         }
     }
 
     void Die()
     {
+        enemy_behaviour.anim.SetBool("Rage", false);
+        enemy_behaviour.anim.SetBool("Attack", false);
+        enemy_behaviour.anim.SetBool("canWalk", false);
         enemy_behaviour.Die();
-        //animator.SetBool("IsDead", true);
 
         Invoke("RealDeath", 3);
-    }
 
-    void RealDeath()
-    {
-        /*
         GetComponent<CircleCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<PolygonCollider2D>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
-        */
-        Destroy(gameObject);
+        GetComponentInParent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    void RealDeath()
+    {
+        //enemy_behaviour.anim.SetBool("IsDead", false);
+        Destroy(transform.parent.gameObject);
         this.enabled = false;
     }
 

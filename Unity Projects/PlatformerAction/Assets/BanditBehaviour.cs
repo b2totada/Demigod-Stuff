@@ -56,6 +56,11 @@ public class BanditBehaviour : MonoBehaviour
         find_player = transform.Find("/Player");
         dist = Vector2.Distance(find_player.position, transform.position);
 
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+
         //Avoid
         playerIsFacingRight = charCont.m_FacingRight;
         detection = AvoidTrigger();
@@ -241,7 +246,7 @@ public class BanditBehaviour : MonoBehaviour
             else if (currentHealth - damage <= 0)
             {
                 currentHealth -= damage;
-                Die();
+                //Die();
             }
         }
     }
