@@ -14,7 +14,7 @@ public class PlayerHealthDisplay : MonoBehaviour
     public AudioClip DrinkSound;
     private void Start()
     {
-        AS.GetComponent<AudioSource>();
+        AS = GetComponent<AudioSource>();
         slider = transform.GetComponent<Slider>();
         slider.maxValue = player.GetComponent<PlayerCombat>().maxHealth;        
     }
