@@ -42,7 +42,7 @@ public class Enemy_behaviour : MonoBehaviour
             Move();
         }
 
-        if (!InsideofLimits() && !inRange) //&& !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_rage"))
+        if (!InsideofLimits() && !inRange && (enemyHealth.currentHealth > 0))// && !anim.GetCurrentAnimatorStateInfo(0).IsName("Skeleton_rage"))
         {
             SelectTarget();
         }

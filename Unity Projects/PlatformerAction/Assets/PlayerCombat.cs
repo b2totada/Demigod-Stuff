@@ -13,6 +13,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
     public GameObject skele;
+    public GameObject bigSkele;
     public AudioClip SwordSlice1;
     public AudioClip SwordSlice2;
     public AudioClip SwordSlice3;
@@ -24,6 +25,7 @@ public class PlayerCombat : MonoBehaviour
     private BanditBehaviour bandit;
     private EnemyHealth enemyHealth;
     private Enemy_behaviour enemy_behaviour;
+    private Enemy_behaviour_1 enemy_behaviour_1;
     public int maxHealth = 100;
     public int currentHealth;
     int enemyAttackDamage;
@@ -44,6 +46,7 @@ public class PlayerCombat : MonoBehaviour
         currentHealth = maxHealth;
 
         enemy_behaviour = skele.GetComponent<Enemy_behaviour>();
+        enemy_behaviour_1 = bigSkele.GetComponent<Enemy_behaviour_1>();
         enemyHealth = skele.GetComponentInChildren<EnemyHealth>();
         //bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
 
@@ -126,6 +129,10 @@ public class PlayerCombat : MonoBehaviour
             {
                 dmg += attackDamage;
             }
+            else if (enemy.gameObject.CompareTag("Skeleton1"))
+            {
+                dmg += attackDamage;
+            }
         }
 
         if (enemy != null)
@@ -142,6 +149,10 @@ public class PlayerCombat : MonoBehaviour
             if (enemy.gameObject.CompareTag("Bandit"))
             {
                 enemy.GetComponent<BanditBehaviour>().TakeDamage(dmg);
+            }
+            else if (enemy.gameObject.CompareTag("Skeleton1"))
+            {
+                enemy.GetComponentInChildren<EnemyHealth1>().TakeDamage(dmg);
             }
             else if (enemy.gameObject.CompareTag("Skeleton"))
             {
@@ -222,6 +233,12 @@ public class PlayerCombat : MonoBehaviour
         {
             enemy_behaviour = trig.gameObject.GetComponentInParent<Enemy_behaviour>();
             enemyAttackDamage = enemy_behaviour.attackDamage;
+            TakeDamage(enemyAttackDamage);
+        }
+        else if (trig.gameObject.tag == "Enemy_weapon1")
+        {
+            enemy_behaviour_1 = trig.gameObject.GetComponentInParent<Enemy_behaviour_1>();
+            enemyAttackDamage = enemy_behaviour_1.attackDamage;
             TakeDamage(enemyAttackDamage);
         }
     }

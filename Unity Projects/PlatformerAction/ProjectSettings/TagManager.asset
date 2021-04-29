@@ -16,6 +16,8 @@ TagManager:
   - Big F Rock
   - Foreground
   - BanditStill
+  - Enemy_weapon1
+  - Skeleton1
   layers:
   - Default
   - TransparentFX

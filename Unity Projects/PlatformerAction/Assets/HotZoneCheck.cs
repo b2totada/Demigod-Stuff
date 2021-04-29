@@ -12,7 +12,7 @@ public class HotZoneCheck : MonoBehaviour
     private void Awake()
     {
         enemyParent = GetComponentInParent<Enemy_behaviour>();
-        enemyHealth = GameObject.Find("skeleton1_collider").GetComponent<EnemyHealth>();
+        enemyHealth = GameObject.Find("Skeleton1/skeleton1_collider").GetComponent<EnemyHealth>();
         anim = GetComponentInParent<Animator>();
     }
 

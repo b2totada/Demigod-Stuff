@@ -40,7 +40,8 @@ public class BanditBehaviour_1 : MonoBehaviour
     {
         myTransform = gameObject.transform;
         find_player = transform.Find("/Player");
-        dist = Vector2.Distance(find_player.position, transform.position);
+        if (find_player != null)
+            dist = Vector2.Distance(find_player.position, transform.position);
 
         if (currentHealth <= 0)
         {

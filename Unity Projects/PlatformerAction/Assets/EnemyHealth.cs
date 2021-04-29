@@ -17,12 +17,14 @@ public class EnemyHealth : MonoBehaviour
     public GameObject trigCheck;
 
     private TriggerAreaCheck trigArea;
+    private Rigidbody2D rb;
     //
 
     //public Animator animator;
 
     void Start()
     {
+        rb = GetComponentInParent<Rigidbody2D>();
         currentHealth = maxHealth;
         skeleton = GetComponentInParent<Transform>();
         enemy_behaviour = GetComponentInParent<Enemy_behaviour>();
@@ -48,6 +50,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             enemy_behaviour.anim.SetBool("IsDead", true);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
             Die();
         }
     }
