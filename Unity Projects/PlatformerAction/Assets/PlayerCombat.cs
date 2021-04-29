@@ -47,7 +47,7 @@ public class PlayerCombat : MonoBehaviour
         enemyHealth = skele.GetComponentInChildren<EnemyHealth>();
         //bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
 
-        playerMoves = GetComponent<PlayerMovement>();
+        playerMoves = transform.GetComponent<PlayerMovement>();
     }
 
     void Update()
