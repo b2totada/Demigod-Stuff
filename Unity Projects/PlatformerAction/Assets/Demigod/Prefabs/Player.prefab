@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7037736743713362448}
-  door: {fileID: 0}
+  door: {fileID: 1699343212936580940, guid: 366c99a1fa948134b9e965c82a381f54, type: 3}
   normal: {fileID: 21300000, guid: 8d6468d622a256848ad45cdf4ba05030, type: 3}
   pressed: {fileID: 21300000, guid: 0226f70afd9928b4092dceeb2d1386b6, type: 3}
 --- !u!212 &7037736743654848085
@@ -386,12 +386,13 @@ MonoBehaviour:
     m_Bits: 256
   attackDamage: 10
   attackRate: 2
-  skele: {fileID: 0}
+  skele: {fileID: 8478224395840859771, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
   SwordSlice1: {fileID: 8300000, guid: 29ccfb42685a5494690c8d4fa581a8a6, type: 3}
   SwordSlice2: {fileID: 8300000, guid: 92e9c948296c31d448889ab8e42dfbb0, type: 3}
   SwordSlice3: {fileID: 8300000, guid: c26de6993a62fad4d8b2a7a83705ac4d, type: 3}
   SwordSlice4: {fileID: 8300000, guid: 8e1d25e8dfb01264c92c7c05e2d3552a, type: 3}
   Whoosh: {fileID: 8300000, guid: aca111ee1bb62174187459eff78d841b, type: 3}
+  explosion: {fileID: 0}
   maxHealth: 100
   currentHealth: 0
   staggered: 0
