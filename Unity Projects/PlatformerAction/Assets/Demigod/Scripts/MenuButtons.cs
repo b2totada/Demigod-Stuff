@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
+    public GameObject options;
+    public GameObject menu;
     public void PlayButtonPress()
     {
         SceneManager.LoadScene("Level1");
     }
     public void OptionsButtonPress()
     {
-        SceneManager.LoadScene("Options", LoadSceneMode.Additive);
+        options.SetActive(true);
+        menu.SetActive(false);
     }
     public void QuitButtonPress()
     {

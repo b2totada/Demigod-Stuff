@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerHealthDisplay : MonoBehaviour
 {
+    private AudioSource AS;
     private Slider slider;
     public GameObject player;
     public GameObject potion1;
     public GameObject potion2;
-    public GameObject potion3;
+    public GameObject potion3;    
+    public AudioClip DrinkSound;
     private void Start()
     {
+        AS.GetComponent<AudioSource>();
         slider = transform.GetComponent<Slider>();
         slider.maxValue = player.GetComponent<PlayerCombat>().maxHealth;        
     }
@@ -33,16 +36,19 @@ public class PlayerHealthDisplay : MonoBehaviour
             {
                 if (potion3.GetComponent<Image>().enabled == true)
                 {
+                    AS.PlayOneShot(DrinkSound);
                     potion3.GetComponent<Image>().enabled = false;
                     player.GetComponent<PlayerCombat>().currentHealth += 25;
                 }
                 else if (potion2.GetComponent<Image>().enabled == true)
                 {
+                    AS.PlayOneShot(DrinkSound);
                     potion2.GetComponent<Image>().enabled = false;
                     player.GetComponent<PlayerCombat>().currentHealth += 25;
                 }
                 else if (potion1.GetComponent<Image>().enabled == true)
                 {
+                    AS.PlayOneShot(DrinkSound);
                     potion1.GetComponent<Image>().enabled = false;
                     player.GetComponent<PlayerCombat>().currentHealth += 25;
                 }
