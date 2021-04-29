@@ -122,6 +122,10 @@ public class PlayerCombat : MonoBehaviour
             {
                 dmg += attackDamage;
             }
+            else if (enemy.gameObject.CompareTag("BanditStill"))
+            {
+                dmg += attackDamage;
+            }
         }
 
         if (enemy != null)
@@ -147,6 +151,10 @@ public class PlayerCombat : MonoBehaviour
             {
                 enemy.GetComponent<Necromancer>().TakeDamage(dmg);
             }
+            else if (enemy.gameObject.CompareTag("BanditStill"))
+            {
+                enemy.GetComponent<BanditBehaviour_1>().TakeDamage(dmg);
+            }
         }
     }
 
@@ -163,6 +171,8 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!animator.GetBool("IsDead"))
         {
+            animator.SetTrigger("Hurt");
+
             if (!playerMoves.IsGrounded())
             {
                 Staggering();
@@ -172,7 +182,7 @@ public class PlayerCombat : MonoBehaviour
             if (currentHealth - damage > 0)
             {
                 currentHealth -= damage;
-                animator.SetTrigger("Hurt");
+                
             }
             else if (currentHealth - damage <= 0)
             {
@@ -192,10 +202,10 @@ public class PlayerCombat : MonoBehaviour
         animator.SetBool("IsDead", true);
         Invoke("RealDeath", 2);
 
-        enemy_behaviour.anim.SetBool("Attack", false);
-        enemy_behaviour.anim.SetBool("Rage", false);
-        enemy_behaviour.enabled = false;
-        enemyHealth.enabled = false;
+        //enemy_behaviour.anim.SetBool("Attack", false);
+        //enemy_behaviour.anim.SetBool("Rage", false);
+        //enemy_behaviour.enabled = false;
+        //enemyHealth.enabled = false;
         //bandit.enabled = false;
     }
 

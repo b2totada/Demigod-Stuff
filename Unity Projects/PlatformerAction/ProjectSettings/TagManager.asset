@@ -15,6 +15,7 @@ TagManager:
   - Necromancer
   - Big F Rock
   - Foreground
+  - BanditStill
   layers:
   - Default
   - TransparentFX
