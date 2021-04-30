@@ -8,6 +8,7 @@ public class CameraScript : MonoBehaviour
     private Scene scene;
     private Camera cam;
     private int oldMask;
+    public Sprite sunShine;
     public Sprite evening;
     public Sprite night;
     // Start is called before the first frame update
@@ -21,20 +22,18 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (scene.name == "Level1")
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level1") && transform.GetComponentInChildren<SpriteRenderer>().sprite != sunShine)
         {
-            
+            transform.GetComponentInChildren<SpriteRenderer>().sprite = sunShine;
         }
-    }
-
-    public void Night()
-    {
-        transform.GetComponentInChildren<SpriteRenderer>().sprite = night;
-    }
-
-    public void Evening()
-    {
-        transform.GetComponentInChildren<SpriteRenderer>().sprite = evening;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level2") && transform.GetComponentInChildren<SpriteRenderer>().sprite != evening)
+        {
+            transform.GetComponentInChildren<SpriteRenderer>().sprite = evening;
+        }
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level3") && transform.GetComponentInChildren<SpriteRenderer>().sprite != night)
+        {
+            transform.GetComponentInChildren<SpriteRenderer>().sprite = night;
+        }
     }
 
     public void Darkness()

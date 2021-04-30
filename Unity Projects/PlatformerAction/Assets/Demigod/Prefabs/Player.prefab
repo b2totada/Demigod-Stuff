@@ -387,12 +387,13 @@ MonoBehaviour:
   attackDamage: 10
   attackRate: 2
   skele: {fileID: 8478224395840859771, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+  bigSkele: {fileID: 0}
   SwordSlice1: {fileID: 8300000, guid: 29ccfb42685a5494690c8d4fa581a8a6, type: 3}
   SwordSlice2: {fileID: 8300000, guid: 92e9c948296c31d448889ab8e42dfbb0, type: 3}
   SwordSlice3: {fileID: 8300000, guid: c26de6993a62fad4d8b2a7a83705ac4d, type: 3}
   SwordSlice4: {fileID: 8300000, guid: 8e1d25e8dfb01264c92c7c05e2d3552a, type: 3}
   Whoosh: {fileID: 8300000, guid: aca111ee1bb62174187459eff78d841b, type: 3}
-  explosion: {fileID: 0}
+  explosion: {fileID: 8300000, guid: 2702010a04a1c8f4f9b37fb4cd57c7e8, type: 3}
   maxHealth: 100
   currentHealth: 0
   staggered: 0

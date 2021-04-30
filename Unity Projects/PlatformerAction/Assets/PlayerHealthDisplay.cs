@@ -7,13 +7,14 @@ public class PlayerHealthDisplay : MonoBehaviour
 {
     private AudioSource AS;
     private Slider slider;
-    public GameObject player;
+    private GameObject player;
     public GameObject potion1;
     public GameObject potion2;
     public GameObject potion3;    
     public AudioClip DrinkSound;
     private void Start()
     {
+        player = GameObject.Find("Player");
         AS = GetComponent<AudioSource>();
         slider = transform.GetComponent<Slider>();
         slider.maxValue = player.GetComponent<PlayerCombat>().maxHealth;        
@@ -26,7 +27,7 @@ public class PlayerHealthDisplay : MonoBehaviour
         {
             slider.value = hp;
         }
-        else
+        if (hp == 0)
         {
             slider.value = 0;
         }

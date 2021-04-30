@@ -222,8 +222,6 @@ public class PlayerCombat : MonoBehaviour
 
     public void RealDeath()
     {
-        Destroy(gameObject);
-        this.enabled = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

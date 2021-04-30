@@ -11,11 +11,8 @@ public class PlayerFallDeath : MonoBehaviour
         deathCollider = transform.GetComponent<BoxCollider2D>();
     }
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (deathCollider.IsTouching(player.GetComponent<CircleCollider2D>()))
-        {
-            player.GetComponent<PlayerCombat>().RealDeath();
-        }
+        player.GetComponent<PlayerCombat>().RealDeath();
     }
 }
