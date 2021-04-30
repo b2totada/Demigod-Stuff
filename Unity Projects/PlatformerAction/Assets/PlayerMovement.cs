@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // dash
     public float dashDistance = 2f;
     public float dashCd = 5f;
-    float nextDash = 0f;
+    public float nextDash = 0f;
 
     // Falling
     private float lastY;

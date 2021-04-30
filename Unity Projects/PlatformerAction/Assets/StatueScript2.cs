@@ -24,7 +24,7 @@ public class StatueScript2 : MonoBehaviour
             }
         }
     }
-    IEnumerator LoadYourAsyncScene()
+    public IEnumerator LoadYourAsyncScene()
     {
         // Set the current Scene to be able to unload it later
         Scene currentScene = SceneManager.GetActiveScene();
