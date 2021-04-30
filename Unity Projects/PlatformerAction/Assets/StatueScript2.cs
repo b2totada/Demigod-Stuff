@@ -39,10 +39,10 @@ public class StatueScript2 : MonoBehaviour
         }
 
         // Move the GameObject (you attach this in the Inspector) to the newly loaded Scene
-        SceneManager.MoveGameObjectToScene(GameObject.Find("Main Camera"), SceneManager.GetSceneByName("Level3"));
-        SceneManager.MoveGameObjectToScene(GameObject.Find("GUI"), SceneManager.GetSceneByName("Level3"));
-        SceneManager.MoveGameObjectToScene(GameObject.Find("Player"), SceneManager.GetSceneByName("Level3"));
-        SceneManager.MoveGameObjectToScene(GameObject.Find("CM vcam1"), SceneManager.GetSceneByName("Level3"));
+        SceneManager.MoveGameObjectToScene(GameObject.Find("Main Camera"), SceneManager.GetSceneByBuildIndex(3));
+        SceneManager.MoveGameObjectToScene(GameObject.Find("GUI"), SceneManager.GetSceneByBuildIndex(3));
+        SceneManager.MoveGameObjectToScene(GameObject.Find("Player"), SceneManager.GetSceneByBuildIndex(3));
+        SceneManager.MoveGameObjectToScene(GameObject.Find("CM vcam1"), SceneManager.GetSceneByBuildIndex(3));
 
         // Unload the previous Scene
         SceneManager.UnloadSceneAsync(currentScene);
