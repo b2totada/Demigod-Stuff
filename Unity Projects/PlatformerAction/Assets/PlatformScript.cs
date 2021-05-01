@@ -8,6 +8,7 @@ public class PlatformScript : MonoBehaviour
     private Vector2 point2;
     private Vector2 target;
     public int speed;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,8 @@ public class PlatformScript : MonoBehaviour
 
         // Gameobjects original target -- CHANGE THIS FOR EVERY INSTANCE TO CUSTOMIZE MOVEMENT
         point2 = new Vector2(220f, transform.position.y);
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
