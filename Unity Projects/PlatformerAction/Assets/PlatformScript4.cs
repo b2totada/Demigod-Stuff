@@ -14,7 +14,7 @@ public class PlatformScript4 : MonoBehaviour
     void Start()
     {
         // Gameobjects original target -- CHANGE THIS FOR EVERY INSTANCE TO CUSTOMIZE MOVEMENT
-        target = new Vector2(transform.position.x, 800f);
+        target = new Vector2(transform.position.x, 77.93f);
     }
 
     // Update is called once per frame
