@@ -37,6 +37,9 @@ public class Enemy_behaviour : MonoBehaviour
 
     void Update()
     {
+        if (enemyHealth.canFlip)
+            Flip();
+
         if (!attackMode)
         {
             Move();
@@ -145,7 +148,7 @@ public class Enemy_behaviour : MonoBehaviour
             target = rightLimit;
         }
 
-        Flip();
+        //Flip();
     }
 
     public void Flip()

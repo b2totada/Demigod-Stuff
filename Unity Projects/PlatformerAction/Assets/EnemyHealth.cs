@@ -18,6 +18,8 @@ public class EnemyHealth : MonoBehaviour
 
     private TriggerAreaCheck trigArea;
     private Rigidbody2D rb;
+
+    public bool canFlip = true;
     //
 
     //public Animator animator;
@@ -49,6 +51,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            canFlip = false;
             enemy_behaviour.anim.SetBool("IsDead", true);
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             Die();

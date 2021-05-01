@@ -346,6 +346,11 @@ Transform:
   m_Father: {fileID: 737603178}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &359517650 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8478224395840859772, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+  m_PrefabInstance: {fileID: 424544074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &371571346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -357,6 +362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton2
       objectReference: {fileID: 0}
+    - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1370271884}
     - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
       propertyPath: leftLimit
       value: 
@@ -452,6 +461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton3
       objectReference: {fileID: 0}
+    - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 359517650}
     - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
       propertyPath: leftLimit
       value: 
@@ -774,6 +787,11 @@ PolygonCollider2D:
       - {x: 0.98, y: 0.00999999}
       - {x: 0.9800001, y: 0.24000037}
       - {x: 0.48, y: 0.24000001}
+--- !u!95 &590226286 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8478224395840859772, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+  m_PrefabInstance: {fileID: 1085260941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &701096050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1153,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8478224395840859771, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
   m_PrefabInstance: {fileID: 8478224395612879961}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &850088485 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8478224395840859772, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+  m_PrefabInstance: {fileID: 8478224395612879961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &945788786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton5
       objectReference: {fileID: 0}
+    - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 590226286}
     - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
       propertyPath: leftLimit
       value: 
@@ -13029,6 +13056,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1121144989537920878, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
   m_PrefabInstance: {fileID: 1121144991194406481}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1370271884 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8478224395840859772, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+  m_PrefabInstance: {fileID: 371571346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1473670952
 GameObject:
   m_ObjectHideFlags: 0
@@ -13104,6 +13136,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473670952}
   m_CullTransparentMesh: 1
+--- !u!95 &1536217732 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8478224395840859772, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+  m_PrefabInstance: {fileID: 1846545130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1563067295
 GameObject:
   m_ObjectHideFlags: 0
@@ -27344,6 +27381,10 @@ PrefabInstance:
       value: Skeleton4
       objectReference: {fileID: 0}
     - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1536217732}
+    - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
       propertyPath: leftLimit
       value: 
       objectReference: {fileID: 731324868}
@@ -27613,7 +27654,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 407277251609042957, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1121144989537920874, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
       propertyPath: m_Name
@@ -27722,6 +27763,18 @@ PrefabInstance:
     - target: {fileID: 1121144990854172107, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 513
+      objectReference: {fileID: 0}
+    - target: {fileID: 1355193585736087791, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419031281150515726, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419031281150515726, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3857550331517348680, guid: 64df006d4305268408f6e7c01cc7cde0, type: 3}
       propertyPath: m_Color.a
@@ -27927,6 +27980,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton1
       objectReference: {fileID: 0}
+    - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 850088485}
     - target: {fileID: 8478224395840859773, guid: 2ad4bf9ca4578f041b73bf27562b8901, type: 3}
       propertyPath: leftLimit
       value: 
