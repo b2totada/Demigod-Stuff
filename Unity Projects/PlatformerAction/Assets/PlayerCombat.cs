@@ -35,7 +35,7 @@ public class PlayerCombat : MonoBehaviour
     public bool staggered;
     public bool frozen;
     public CircleCollider2D playerCircleColl;
-
+    private CameraScript camScript;
     public Collider2D enemy;
 
     void Start()
@@ -44,7 +44,7 @@ public class PlayerCombat : MonoBehaviour
         staggered = false;
         rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-
+        camScript = GameObject.Find("Main Camera").GetComponent<CameraScript>();
         enemy_behaviour = skele.GetComponent<Enemy_behaviour>();
         enemy_behaviour_1 = bigSkele.GetComponent<Enemy_behaviour_1>();
         enemyHealth = skele.GetComponentInChildren<EnemyHealth>();
@@ -206,12 +206,12 @@ public class PlayerCombat : MonoBehaviour
     void Die()
     {
         Staggering();
-
+        
         transform.GetComponent<PlayerMovement>().enabled = false;
 
         //animator.SetBool("IsFalling", false);
         animator.SetBool("IsDead", true);
-        Invoke("RealDeath", 2);
+        Invoke("YouDied", 2f);
 
         //enemy_behaviour.anim.SetBool("Attack", false);
         //enemy_behaviour.anim.SetBool("Rage", false);
@@ -223,6 +223,7 @@ public class PlayerCombat : MonoBehaviour
     public void RealDeath()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Invoke("EndYouDie", 1f);
     }
 
     void OnTriggerEnter2D(Collider2D trig)
@@ -258,6 +259,17 @@ public class PlayerCombat : MonoBehaviour
     {
         AS.clip = explosion;
         AS.PlayOneShot(AS.clip);
+    }
+
+    void YouDied()
+    {
+        camScript.cam.cullingMask = (1 << 11);
+        Invoke("RealDeath", 2f);
+    }
+
+    void EndYouDied()
+    {
+        camScript.cam.cullingMask = -1;
     }
 }
 
