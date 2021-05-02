@@ -840,6 +840,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7037736743654848084, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7037736743713362448, guid: b3c221767155e6d47bd878e18d26bb8d, type: 3}
       propertyPath: m_Name
       value: Player
