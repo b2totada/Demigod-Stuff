@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6d979d7f68fc241add748975d541b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   currentHealth: 0
   wallsLayerMask:
     serializedVersion: 2
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDistance: 3
-  attackDamage: 40
+  attackDamage: 20
   moveSpeed: 4
   timer: 1
   leftLimit: {fileID: 0}

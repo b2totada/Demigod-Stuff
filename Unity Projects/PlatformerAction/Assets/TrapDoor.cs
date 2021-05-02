@@ -6,13 +6,15 @@ public class TrapDoor : MonoBehaviour
 {
     public Sprite open;
     public Sprite closed;
-    public GameObject player;
     public GameObject BossHealthBar;
+    private GameObject player;
     private PolygonCollider2D trigger;
     private BoxCollider2D doorColl;
     private BoxCollider2D playerColl;
     private void Start()
     {
+        player = GameObject.Find("Player");
+        player.GetComponent<PlayerCombat>().PlayerToSpawnPoint();
         trigger = transform.GetChild(0).GetComponent<PolygonCollider2D>();
         doorColl = transform.GetComponent<BoxCollider2D>();
         playerColl = player.GetComponent<BoxCollider2D>();
@@ -28,6 +30,7 @@ public class TrapDoor : MonoBehaviour
             trigger.enabled = false;
             transform.GetComponent<SpriteRenderer>().sprite = closed;
             BossHealthBar.SetActive(true);
+            transform.GetComponent<AudioSource>().Play();
         }
     }
 }

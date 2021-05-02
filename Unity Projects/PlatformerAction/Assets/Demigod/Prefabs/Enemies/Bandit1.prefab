@@ -279,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   animator: {fileID: 8375306750200190435}
-  damage: 10
+  damage: 20
   speed: 7
   spot1: 34
   spot2: 35

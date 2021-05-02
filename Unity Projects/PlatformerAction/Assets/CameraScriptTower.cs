@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraScriptTower : MonoBehaviour
 {
@@ -44,5 +45,6 @@ public class CameraScriptTower : MonoBehaviour
         textComplete.SetActive(false);
         panel.SetActive(false);
         Destroy(gameObject);
+        SceneManager.LoadScene(0);
     }
 }

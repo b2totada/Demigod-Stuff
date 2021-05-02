@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Necromancer : MonoBehaviour
 {
-    public AudioClip SummonSkullFlame;  
-    public GameObject player;
+    public AudioClip SummonSkullFlame;    
     public GameObject skullFlame;
     public GameObject trapDoor;
     public GameObject orbspawner;
@@ -20,14 +20,16 @@ public class Necromancer : MonoBehaviour
     private bool canCast;
     private bool IsJumping;
     private CameraScriptTower camScTw;
+    private GameObject player;
     void Start()
     {
+        player = GameObject.Find("Player");
         NecroDebug();
         currentHealth = maxHealth;
         phase = 0;
         AS = GetComponent<AudioSource>();
         animator = transform.GetComponent<Animator>();
-        camScTw = GameObject.Find("Main Camera (1)").GetComponent<CameraScriptTower>();
+        camScTw = GameObject.Find("Main Camera").GetComponent<CameraScriptTower>();
     }
 
     void Update()
@@ -176,8 +178,11 @@ public class Necromancer : MonoBehaviour
 
     void RealDeath()
     {
+        GameObject.Find("GUI").SetActive(false);
+        GameObject.Find("Player").SetActive(false);
+        GameObject.Find("BossHealthBar").SetActive(false);
         camScTw.GameComplete();
-        Destroy(gameObject);
+        Destroy(gameObject);       
     }
     void TowardsPlayer() 
     {
