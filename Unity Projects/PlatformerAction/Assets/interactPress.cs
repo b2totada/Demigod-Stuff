@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class interactPress : MonoBehaviour
 {
     public GameObject player;
-    public GameObject door;
     public Sprite normal;
     public Sprite pressed;
     private SpriteRenderer sr;
@@ -23,14 +23,18 @@ public class interactPress : MonoBehaviour
         {
             sr.flipX = true;
         }
-        if ((player.transform.position - door.transform.position).magnitude > 1)
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level3"))
         {
-            sr.enabled = false;
+            if ((player.transform.position - GameObject.Find("TowerDoor").transform.position).magnitude > 1)
+            {
+                sr.enabled = false;
+            }
+            else
+            {
+                sr.enabled = true;
+            }
         }
-        else
-        {
-            sr.enabled = true;
-        }
+
         if (sr.enabled)
         {
             transform.GetComponent<Animation>().Play();

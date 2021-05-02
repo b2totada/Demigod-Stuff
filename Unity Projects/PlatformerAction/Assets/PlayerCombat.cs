@@ -39,8 +39,7 @@ public class PlayerCombat : MonoBehaviour
     public Collider2D enemy;
 
     void Start()
-    {
-        transform.position = GameObject.Find("SpawnPoint").transform.position;
+    {      
         AS = transform.GetComponent<AudioSource>();
         staggered = false;
         rigidbody = GetComponent<Rigidbody2D>();
@@ -50,7 +49,6 @@ public class PlayerCombat : MonoBehaviour
         enemy_behaviour_1 = bigSkele.GetComponent<Enemy_behaviour_1>();
         enemyHealth = skele.GetComponentInChildren<EnemyHealth>();
         //bandit = GameObject.Find("Bandit1").GetComponent<BanditBehaviour>();
-
         playerMoves = transform.GetComponent<PlayerMovement>();
     }
 
@@ -91,7 +89,10 @@ public class PlayerCombat : MonoBehaviour
             CancelInvoke("DealDamage");
         }
     }
-
+    public void PlayerToSpawnPoint()
+    {
+        transform.position = GameObject.Find("SpawnPoint").transform.position;
+    }
     void Attack()
     {
         //Play att anim
@@ -265,7 +266,7 @@ public class PlayerCombat : MonoBehaviour
     {
         NotStaggering();
         transform.GetComponent<PlayerMovement>().enabled = true;
-        transform.position = GameObject.Find("SpawnPoint").transform.position;
+        PlayerToSpawnPoint();
         animator.SetBool("IsDead", false);
         animator.Play("Player_Idle");
         currentHealth = maxHealth;      

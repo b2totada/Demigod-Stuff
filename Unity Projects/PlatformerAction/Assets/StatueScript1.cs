@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -47,6 +46,7 @@ public class StatueScript1 : MonoBehaviour
         SceneManager.MoveGameObjectToScene(GameObject.Find("CM vcam1"), SceneManager.GetSceneByName("Level2"));
         SceneManager.MoveGameObjectToScene(GameObject.Find("Canvas"), SceneManager.GetSceneByName("Level2"));
         SceneManager.MoveGameObjectToScene(GameObject.Find("Canvas_GameComplete"), SceneManager.GetSceneByName("Level2"));
+        GameObject.Find("Player").GetComponent<PlayerCombat>().PlayerToSpawnPoint();
 
         // Unload the previous Scene
         SceneManager.UnloadSceneAsync(currentScene);

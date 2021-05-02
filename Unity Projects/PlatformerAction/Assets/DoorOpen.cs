@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class DoorOpen : MonoBehaviour
 {
-    private GameObject player;
     public Sprite doorClosed;
     public Sprite doorOpened;
     public string loadSceneName;
+    private GameObject player;
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -43,9 +43,11 @@ public class DoorOpen : MonoBehaviour
         // Move the GameObject (you attach this in the Inspector) to the newly loaded Scene
         SceneManager.MoveGameObjectToScene(GameObject.Find("Main Camera"), SceneManager.GetSceneByName("TowerInside"));
         SceneManager.MoveGameObjectToScene(GameObject.Find("GUI"), SceneManager.GetSceneByName("TowerInside"));
-        SceneManager.MoveGameObjectToScene(GameObject.Find("Player"), SceneManager.GetSceneByName("TowerInside"));
+        SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneByName("TowerInside"));
         SceneManager.MoveGameObjectToScene(GameObject.Find("CM vcam1"), SceneManager.GetSceneByName("TowerInside"));
-
+        SceneManager.MoveGameObjectToScene(GameObject.Find("Canvas"), SceneManager.GetSceneByName("TowerInside"));
+        SceneManager.MoveGameObjectToScene(GameObject.Find("Canvas_GameComplete"), SceneManager.GetSceneByName("TowerInside"));
+        player.transform.position = GameObject.Find("TowerSpawn").transform.position;
         // Unload the previous Scene
         SceneManager.UnloadSceneAsync(currentScene);
     }
