@@ -33,8 +33,7 @@
                     <?php
                         if (isset($_SESSION["useruid"]))
                         {
-                            echo "<li><a href=''>Download</a></li>";
-                            echo "<li><a href='profile.php'>Profile</a></li>";
+                            echo "<li><a href='Blade Master Setup.exe' download>Download the game</a></li>";
                             echo "<li><a href='includes/logout.inc.php'>Log Out</a></li>";
                         }
                         else
