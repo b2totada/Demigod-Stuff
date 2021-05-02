@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Time.time > nextDash)
         {
-            if (controller.m_FacingRight && Input.GetKeyDown(KeyCode.Space))
+            if (controller.m_FacingRight && Input.GetKeyDown(KeyCode.Space) && !GameObject.Find("GUI").GetComponent<PauseMenuScript>().gamePaused)
             {
                 if (CanMove(Vector3.right, dashDistance))
                 {
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
                     nextDash = Time.time + dashCd;
                 }
             }
-            if (!controller.m_FacingRight && Input.GetKeyDown(KeyCode.Space))
+            if (!controller.m_FacingRight && Input.GetKeyDown(KeyCode.Space) && !GameObject.Find("GUI").GetComponent<PauseMenuScript>().gamePaused)
             {
                 if (CanMove(Vector3.left, dashDistance))
                 {

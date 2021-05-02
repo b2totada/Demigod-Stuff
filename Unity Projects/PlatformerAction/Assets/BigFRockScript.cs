@@ -34,7 +34,7 @@ public class BigFRockScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && canKill)
         {
-            Destroy(player);
+            player.GetComponent<PlayerCombat>().YouDied();
         }
 
         if (collision.gameObject.tag == "Foreground")
