@@ -27492,7 +27492,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 89780deda174a5842a9e70405b410d3a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -27654,6 +27654,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2456513750369396864, guid: cd792cdaa186f7c4699ca53ce394b0c3, type: 3}
+      propertyPath: BossMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 89780deda174a5842a9e70405b410d3a, type: 3}
+    - target: {fileID: 2456513750369396864, guid: cd792cdaa186f7c4699ca53ce394b0c3, type: 3}
+      propertyPath: TowerMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 77c6fdbe773d1394386a55a6d1aa03e4, type: 3}
     - target: {fileID: 2456513750369396864, guid: cd792cdaa186f7c4699ca53ce394b0c3, type: 3}
       propertyPath: BossHealthBar
       value: 

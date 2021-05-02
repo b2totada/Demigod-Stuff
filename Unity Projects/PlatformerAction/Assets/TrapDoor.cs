@@ -7,12 +7,16 @@ public class TrapDoor : MonoBehaviour
     public Sprite open;
     public Sprite closed;
     public GameObject BossHealthBar;
+    public AudioClip BossMusic;
+    public AudioClip TowerMusic;
     private GameObject player;
     private PolygonCollider2D trigger;
     private BoxCollider2D doorColl;
     private BoxCollider2D playerColl;
     private void Start()
     {
+        transform.GetComponent<AudioSource>().clip = TowerMusic;
+        transform.GetComponent<AudioSource>().Play();
         player = GameObject.Find("Player");
         player.GetComponent<PlayerCombat>().PlayerToSpawnPoint();
         trigger = transform.GetChild(0).GetComponent<PolygonCollider2D>();
@@ -30,6 +34,7 @@ public class TrapDoor : MonoBehaviour
             trigger.enabled = false;
             transform.GetComponent<SpriteRenderer>().sprite = closed;
             BossHealthBar.SetActive(true);
+            transform.GetComponent<AudioSource>().clip = BossMusic;
             transform.GetComponent<AudioSource>().Play();
         }
     }
