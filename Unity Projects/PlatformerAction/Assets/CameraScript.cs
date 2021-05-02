@@ -12,7 +12,7 @@ public class CameraScript : MonoBehaviour
     public Sprite night;
     // Start is called before the first frame update
     void Start()
-    {
+    {       
         cam = GetComponent<Camera>();
     }
 

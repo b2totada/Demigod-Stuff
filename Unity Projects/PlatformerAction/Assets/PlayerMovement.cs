@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool isFalling = false;  //Other scripts can check this value to see if currently falling
 
     void Awake()
-    {
+    {      
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
         circlecollider2d = transform.GetComponent<CircleCollider2D>();
         playerCombat = GetComponent<PlayerCombat>();

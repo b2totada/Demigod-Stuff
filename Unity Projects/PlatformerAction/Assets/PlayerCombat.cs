@@ -40,6 +40,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
+        transform.position = GameObject.Find("SpawnPoint").transform.position;
         AS = transform.GetComponent<AudioSource>();
         staggered = false;
         rigidbody = GetComponent<Rigidbody2D>();
@@ -211,19 +212,12 @@ public class PlayerCombat : MonoBehaviour
 
         //animator.SetBool("IsFalling", false);
         animator.SetBool("IsDead", true);
-        Invoke("YouDied", 2f);
-
+        Invoke("YouDied", 1f);
         //enemy_behaviour.anim.SetBool("Attack", false);
         //enemy_behaviour.anim.SetBool("Rage", false);
         //enemy_behaviour.enabled = false;
         //enemyHealth.enabled = false;
         //bandit.enabled = false;
-    }
-
-    public void RealDeath()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Invoke("EndYouDie", 1f);
     }
 
     void OnTriggerEnter2D(Collider2D trig)
@@ -261,15 +255,30 @@ public class PlayerCombat : MonoBehaviour
         AS.PlayOneShot(AS.clip);
     }
 
-    void YouDied()
+    public void YouDied()
     {
         camScript.cam.cullingMask = (1 << 11);
-        Invoke("RealDeath", 2f);
+        Invoke("EndYouDied", 1f);
     }
 
-    void EndYouDied()
+    public void EndYouDied()
     {
+        NotStaggering();
+        transform.GetComponent<PlayerMovement>().enabled = true;
+        transform.position = GameObject.Find("SpawnPoint").transform.position;
+        animator.SetBool("IsDead", false);
+        animator.Play("Player_Idle");
+        currentHealth = maxHealth;      
         camScript.cam.cullingMask = -1;
+        if (SceneManager.GetActiveScene().name != "Level1")
+        {
+            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(GameObject.Find("Main Camera"));
+            DontDestroyOnLoad(GameObject.Find("GUI"));
+            DontDestroyOnLoad(GameObject.Find("CM vcam1"));
+            DontDestroyOnLoad(GameObject.Find("Canvas"));
+        }           
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
 
