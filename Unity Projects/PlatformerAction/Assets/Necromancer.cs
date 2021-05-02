@@ -19,6 +19,7 @@ public class Necromancer : MonoBehaviour
     private int attack2Counter;
     private bool canCast;
     private bool IsJumping;
+    private CameraScriptTower camScTw;
     void Start()
     {
         NecroDebug();
@@ -26,6 +27,7 @@ public class Necromancer : MonoBehaviour
         phase = 0;
         AS = GetComponent<AudioSource>();
         animator = transform.GetComponent<Animator>();
+        camScTw = GameObject.Find("Main Camera (1)").GetComponent<CameraScriptTower>();
     }
 
     void Update()
@@ -165,6 +167,7 @@ public class Necromancer : MonoBehaviour
 
     void Die()
     {
+        CancelInvoke("CanCastAgain");
         animator.Play("Death");
         Invoke("RealDeath", 2);
         inCombat = false;
@@ -173,6 +176,7 @@ public class Necromancer : MonoBehaviour
 
     void RealDeath()
     {
+        camScTw.GameComplete();
         Destroy(gameObject);
     }
     void TowardsPlayer() 
@@ -209,4 +213,27 @@ public class Necromancer : MonoBehaviour
         phase = 4;
         animator.Play("Idle");
     }
+
+    /*
+    void GameComplete()
+    {
+        //panel.SetActive(true);
+        //textGame.SetActive(true);
+        Invoke("TextComplete", 1f);
+    }
+
+    void TextComplete()
+    {
+        textGame.SetActive(false);
+        textComplete.SetActive(true);
+        Invoke("FinalMethod", 1f);
+    }
+
+    void FinalMethod()
+    {
+        textComplete.SetActive(false);
+        panel.SetActive(false);
+        Destroy(gameObject);
+    }
+    */
 }
