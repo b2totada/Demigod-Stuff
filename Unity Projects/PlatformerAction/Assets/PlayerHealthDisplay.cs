@@ -27,7 +27,7 @@ public class PlayerHealthDisplay : MonoBehaviour
         {
             slider.value = hp;
         }
-        if (hp == 0)
+        if (hp <= 0)
         {
             slider.value = 0;
         }

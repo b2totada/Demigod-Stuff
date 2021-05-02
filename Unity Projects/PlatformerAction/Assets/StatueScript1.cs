@@ -15,6 +15,7 @@ public class StatueScript1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (!done)
         {
             if (collision.gameObject.tag == "Player")
@@ -44,6 +45,7 @@ public class StatueScript1 : MonoBehaviour
         SceneManager.MoveGameObjectToScene(GameObject.Find("GUI"), SceneManager.GetSceneByName("Level2"));
         SceneManager.MoveGameObjectToScene(GameObject.Find("Player"), SceneManager.GetSceneByName("Level2"));
         SceneManager.MoveGameObjectToScene(GameObject.Find("CM vcam1"), SceneManager.GetSceneByName("Level2"));
+        SceneManager.MoveGameObjectToScene(GameObject.Find("Canvas"), SceneManager.GetSceneByName("Level2"));
 
         // Unload the previous Scene
         SceneManager.UnloadSceneAsync(currentScene);
