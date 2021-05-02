@@ -277,6 +277,7 @@ public class PlayerCombat : MonoBehaviour
             DontDestroyOnLoad(GameObject.Find("GUI"));
             DontDestroyOnLoad(GameObject.Find("CM vcam1"));
             DontDestroyOnLoad(GameObject.Find("Canvas"));
+            DontDestroyOnLoad(GameObject.Find("Canvas_GameComplete"));
         }           
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

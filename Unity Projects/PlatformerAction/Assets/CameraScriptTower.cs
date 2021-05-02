@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraScriptTower : MonoBehaviour
 {
-    public Camera cam;
+    private Camera cam; //try public if not working
     private GameObject panel;
     private GameObject textGame;
     private GameObject textComplete;

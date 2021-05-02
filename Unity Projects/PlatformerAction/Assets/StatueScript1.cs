@@ -46,6 +46,7 @@ public class StatueScript1 : MonoBehaviour
         SceneManager.MoveGameObjectToScene(GameObject.Find("Player"), SceneManager.GetSceneByName("Level2"));
         SceneManager.MoveGameObjectToScene(GameObject.Find("CM vcam1"), SceneManager.GetSceneByName("Level2"));
         SceneManager.MoveGameObjectToScene(GameObject.Find("Canvas"), SceneManager.GetSceneByName("Level2"));
+        SceneManager.MoveGameObjectToScene(GameObject.Find("Canvas_GameComplete"), SceneManager.GetSceneByName("Level2"));
 
         // Unload the previous Scene
         SceneManager.UnloadSceneAsync(currentScene);
