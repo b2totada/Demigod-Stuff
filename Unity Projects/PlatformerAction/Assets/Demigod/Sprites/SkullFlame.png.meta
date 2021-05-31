@@ -1,0 +1,264 @@
+fileFormatVersion: 2
+guid: 54903138aaad0f547a488c3e0e24349c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8465687346892640621
+    second: SkullFlame_0
+  - first:
+      213: 5965942175335687794
+    second: SkullFlame_1
+  - first:
+      213: 1839114068475964327
+    second: SkullFlame_2
+  - first:
+      213: 4846688470216529136
+    second: SkullFlame_3
+  - first:
+      213: 8359974481719385988
+    second: SkullFlame_4
+  - first:
+      213: 6769351148461241261
+    second: SkullFlame_5
+  - first:
+      213: -1785240805365337463
+    second: SkullFlame_6
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SkullFlame_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 346.2857
+        width: 66
+        height: 57.714287
+      alignment: 9
+      pivot: {x: 0.83005154, y: 0.42226085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ee1fc0636d38a80800000000000000
+      internalID: -8465687346892640621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkullFlame_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289.2857
+        width: 66
+        height: 57.714287
+      alignment: 9
+      pivot: {x: 0.83005154, y: 0.4641204}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276a76facc84bc250800000000000000
+      internalID: 5965942175335687794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkullFlame_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 232.2857
+        width: 66
+        height: 57.714287
+      alignment: 9
+      pivot: {x: 0.8326661, y: 0.43721077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7abeee05088d58910800000000000000
+      internalID: 1839114068475964327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkullFlame_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 175.2857
+        width: 66
+        height: 57.714287
+      alignment: 9
+      pivot: {x: 0.8431082, y: 0.40799224}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4dc3c1c75e24340800000000000000
+      internalID: 4846688470216529136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkullFlame_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 118.28571
+        width: 66
+        height: 57.714287
+      alignment: 9
+      pivot: {x: 0.8431082, y: 0.42179328}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48fd6328f78940470800000000000000
+      internalID: 8359974481719385988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkullFlame_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61.285713
+        width: 66
+        height: 57.714287
+      alignment: 9
+      pivot: {x: 0.833459, y: 0.4206457}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da33ae3010191fd50800000000000000
+      internalID: 6769351148461241261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkullFlame_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4.285713
+        width: 66
+        height: 57.714287
+      alignment: 9
+      pivot: {x: 0.82651985, y: 0.41271067}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 982baa532fc8937e0800000000000000
+      internalID: -1785240805365337463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

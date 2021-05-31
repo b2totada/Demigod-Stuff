@@ -3,21 +3,35 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Tutorial
+  - Enemy
+  - Bandit
+  - Skeleton
+  - Enemy_weapon
+  - BanditSpot
+  - SkullOrb
+  - Bandit_weapon
+  - Necromancer
+  - Big F Rock
+  - Foreground
+  - BanditStill
+  - Enemy_weapon1
+  - Skeleton1
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Foreground
+  - Enemies
+  - HotZone
+  - Walls
+  - YouDied
+  - GameComplete
   - 
   - 
   - 
@@ -40,4 +54,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1503646469
+    locked: 0
+  - name: Bg_elements
+    uniqueID: 3818179667
+    locked: 0
+  - name: Foreground
+    uniqueID: 2906298355
+    locked: 0
+  - name: Player
+    uniqueID: 3844083589
+    locked: 0
+  - name: Enemies
+    uniqueID: 1130222271
+    locked: 0
+  - name: Walls
+    uniqueID: 3602425749
+    locked: 0
+  - name: GUI
+    uniqueID: 4155109335
     locked: 0
